@@ -2,10 +2,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { StarParticles } from "@/components/star-particles";
 
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-background py-20 sm:py-28 lg:py-36">
+      {/* Animated star particles drifting right to left */}
+      <StarParticles count={45} />
+
       {/* Subtle glow effect */}
       <div
         className="pointer-events-none absolute left-1/4 top-0 -translate-x-1/2 opacity-30"
