@@ -36,7 +36,7 @@ export function Footer() {
                 alt="Infinitechx logo"
                 width={36}
                 height={36}
-                className="h-8 w-auto brightness-110 hue-rotate-[200deg] saturate-150 drop-shadow-[0_0_6px_hsl(220_100%_61%/0.4)]"
+                className="h-8 w-8 rounded-full object-cover ring-1 ring-border/60 brightness-110 hue-rotate-[200deg] saturate-150 drop-shadow-[0_0_6px_hsl(220_100%_61%/0.4)]"
               />
               <span className="font-heading text-xl font-bold tracking-tight text-foreground">
                 Infinite<span className="text-primary">chx</span>
