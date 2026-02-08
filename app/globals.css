@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    /* Infinitechx Dark Theme — Primary palette */
+    --background: 0 0% 4%;
+    --foreground: 220 33% 97%;
+    --card: 225 7% 12.5%;
+    --card-foreground: 220 33% 97%;
+    --popover: 225 7% 12.5%;
+    --popover-foreground: 220 33% 97%;
+    --primary: 220 100% 61%;
+    --primary-foreground: 220 33% 97%;
+    --secondary: 225 7% 12.5%;
+    --secondary-foreground: 220 33% 97%;
+    --muted: 225 7% 16%;
+    --muted-foreground: 220 10% 60%;
+    --accent: 187 100% 50%;
+    --accent-foreground: 0 0% 4%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 220 33% 97%;
+    --border: 225 7% 18%;
+    --input: 225 7% 18%;
+    --ring: 220 100% 61%;
+    --radius: 0.625rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  ::selection {
+    background: hsl(220 100% 61% / 0.3);
+    color: hsl(220 33% 97%);
+  }
+}
