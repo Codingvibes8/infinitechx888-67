@@ -2,7 +2,13 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { contactFormSchema } from "@/lib/schemas/contact";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+function getResendClient() {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    throw new Error("RESEND_API_KEY environment variable is not set.");
+  }
+  return new Resend(apiKey);
+}
 
 export async function POST(request: Request) {
   try {
@@ -19,6 +25,7 @@ export async function POST(request: Request) {
     const { name, email, businessName, websiteUrl, improvement, budget, message } =
       parsed.data;
 
+    const resend = getResendClient();
     await resend.emails.send({
       from: "Infinitechx <onboarding@resend.dev>",
       to: ["hello@infinitechx.com"],

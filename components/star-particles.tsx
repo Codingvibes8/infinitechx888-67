@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useState, useEffect } from "react";
 
 interface Star {
   id: number;
@@ -27,7 +27,11 @@ function generateStars(count: number): Star[] {
 }
 
 export function StarParticles({ count = 40 }: { count?: number }) {
-  const stars = useMemo(() => generateStars(count), [count]);
+  const [stars, setStars] = useState<Star[]>([]);
+
+  useEffect(() => {
+    setStars(generateStars(count));
+  }, [count]);
 
   return (
     <div
