@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const footerLinks = [
   {
@@ -28,7 +29,14 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-3">
           {/* Brand */}
           <div className="space-y-4">
-            <Link href="/" className="inline-block" aria-label="Infinitechx Home">
+            <Link href="/" className="inline-flex items-center gap-2.5" aria-label="Infinitechx Home">
+              <Image
+                src="/images/logo.jpg"
+                alt="Infinitechx logo"
+                width={36}
+                height={36}
+                className="h-8 w-auto brightness-110 hue-rotate-[200deg] saturate-150 drop-shadow-[0_0_6px_hsl(220_100%_61%/0.4)]"
+              />
               <span className="font-heading text-xl font-bold tracking-tight text-foreground">
                 Infinite<span className="text-primary">chx</span>
               </span>

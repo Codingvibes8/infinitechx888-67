@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
@@ -23,7 +24,15 @@ export function Navbar() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-xl">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2" aria-label="Infinitechx Home">
+        <Link href="/" className="flex items-center gap-2.5" aria-label="Infinitechx Home">
+          <Image
+            src="/images/logo.jpg"
+            alt="Infinitechx logo"
+            width={36}
+            height={36}
+            className="h-8 w-auto brightness-110 hue-rotate-[200deg] saturate-150 drop-shadow-[0_0_6px_hsl(220_100%_61%/0.4)]"
+            priority
+          />
           <span className="font-heading text-xl font-bold tracking-tight text-foreground">
             Infinite<span className="text-primary">chx</span>
           </span>
