@@ -108,57 +108,65 @@ export default function PricingPage() {
       <section className="border-t border-border/40 bg-card py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid gap-8 lg:grid-cols-3">
-            {packages.map((pkg) => (
-              <div
-                key={pkg.name}
-                className={cn(
-                  "relative flex flex-col rounded-xl border bg-background p-8",
-                  pkg.popular
-                    ? "border-primary shadow-lg shadow-primary/10"
-                    : "border-border/40"
-                )}
-              >
-                {pkg.popular && (
-                  <Badge className="absolute -top-3 left-8 bg-primary text-primary-foreground">
-                    Most Popular
-                  </Badge>
-                )}
-                <h2 className="font-heading text-2xl font-bold text-foreground">
-                  {pkg.name}
-                </h2>
-                <div className="mt-4 flex items-baseline gap-1">
-                  <span className="font-heading text-4xl font-bold text-foreground">
-                    {"£"}{pkg.price}
-                  </span>
+            {packages.map((pkg, i) => {
+              const delays = [
+                "animate-card-enter",
+                "animate-card-enter-d1",
+                "animate-card-enter-d2",
+              ];
+              return (
+                <div
+                  key={pkg.name}
+                  className={cn(
+                    "group card-glow card-animate-init relative flex flex-col rounded-xl border bg-background p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl",
+                    pkg.popular
+                      ? "border-primary shadow-lg shadow-primary/10 animate-border-glow"
+                      : "border-border/40 hover:border-primary/40",
+                    delays[i] || delays[2]
+                  )}
+                >
+                  {pkg.popular && (
+                    <Badge className="absolute -top-3 left-8 bg-primary text-primary-foreground animate-glow">
+                      Most Popular
+                    </Badge>
+                  )}
+                  <h2 className="font-heading text-2xl font-bold text-foreground transition-colors duration-300 group-hover:text-primary">
+                    {pkg.name}
+                  </h2>
+                  <div className="mt-4 flex items-baseline gap-1">
+                    <span className="font-heading text-4xl font-bold text-foreground transition-transform duration-300 group-hover:scale-105 inline-block origin-left">
+                      {"£"}{pkg.price}
+                    </span>
+                  </div>
+                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                    {pkg.description}
+                  </p>
+                  <ul className="mt-8 flex-1 space-y-3">
+                    {pkg.features.map((feature) => (
+                      <li key={feature} className="flex items-start gap-3 text-sm">
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary transition-transform duration-300 group-hover:scale-110" />
+                        <span className="text-muted-foreground transition-colors duration-300 group-hover:text-foreground/80">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-8">
+                    <Button
+                      asChild
+                      className={cn(
+                        "w-full gap-2 transition-all duration-300",
+                        pkg.popular ? "group-hover:shadow-lg group-hover:shadow-primary/20" : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+                      )}
+                      size="lg"
+                    >
+                      <Link href="/contact">
+                        Get Started
+                        <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                      </Link>
+                    </Button>
+                  </div>
                 </div>
-                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                  {pkg.description}
-                </p>
-                <ul className="mt-8 flex-1 space-y-3">
-                  {pkg.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-3 text-sm">
-                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                      <span className="text-muted-foreground">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-8">
-                  <Button
-                    asChild
-                    className={cn(
-                      "w-full gap-2",
-                      pkg.popular ? "" : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
-                    )}
-                    size="lg"
-                  >
-                    <Link href="/contact">
-                      Get Started
-                      <ArrowRight className="h-4 w-4" />
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -176,30 +184,33 @@ export default function PricingPage() {
           </div>
 
           <div className="mx-auto mt-16 grid max-w-3xl gap-8 sm:grid-cols-2">
-            {supportPlans.map((plan) => (
-              <div
-                key={plan.name}
-                className="rounded-xl border border-border/40 bg-card p-8"
-              >
-                <h3 className="font-heading text-xl font-bold text-foreground">
-                  {plan.name}
-                </h3>
-                <div className="mt-2 flex items-baseline gap-1">
-                  <span className="font-heading text-3xl font-bold text-primary">
-                    {"£"}{plan.price}
-                  </span>
-                  <span className="text-sm text-muted-foreground">/month</span>
+            {supportPlans.map((plan, i) => {
+              const delays = ["animate-card-enter", "animate-card-enter-d1"];
+              return (
+                <div
+                  key={plan.name}
+                  className={`group card-glow card-shine card-animate-init rounded-xl border border-border/40 bg-card p-8 transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-lg ${delays[i] || delays[1]}`}
+                >
+                  <h3 className="font-heading text-xl font-bold text-foreground transition-colors duration-300 group-hover:text-primary">
+                    {plan.name}
+                  </h3>
+                  <div className="mt-2 flex items-baseline gap-1">
+                    <span className="font-heading text-3xl font-bold text-primary transition-transform duration-300 group-hover:scale-105 inline-block origin-left">
+                      {"£"}{plan.price}
+                    </span>
+                    <span className="text-sm text-muted-foreground">/month</span>
+                  </div>
+                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                    {plan.description}
+                  </p>
+                  <div className="mt-6">
+                    <Button asChild variant="outline" className="w-full bg-transparent transition-all duration-300 group-hover:border-primary/40 group-hover:text-primary">
+                      <Link href="/contact">Learn More</Link>
+                    </Button>
+                  </div>
                 </div>
-                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                  {plan.description}
-                </p>
-                <div className="mt-6">
-                  <Button asChild variant="outline" className="w-full bg-transparent">
-                    <Link href="/contact">Learn More</Link>
-                  </Button>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

@@ -54,22 +54,32 @@ export function Features() {
         </div>
 
         <div className="mx-auto mt-16 grid max-w-5xl gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {features.map((feature) => (
-            <div
-              key={feature.title}
-              className="group rounded-xl border border-border/40 bg-background p-6 transition-all hover:border-primary/40"
-            >
-              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                <feature.icon className="h-5 w-5" />
+          {features.map((feature, i) => {
+            const delays = [
+              "animate-card-enter",
+              "animate-card-enter-d1",
+              "animate-card-enter-d2",
+              "animate-card-enter-d3",
+              "animate-card-enter-d4",
+              "animate-card-enter-d5",
+            ];
+            return (
+              <div
+                key={feature.title}
+                className={`group card-shine card-glow card-animate-init rounded-xl border border-border/40 bg-background p-6 transition-all duration-300 hover:border-primary/40 hover:-translate-y-1.5 hover:shadow-xl ${delays[i] || delays[5]}`}
+              >
+                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary/20 group-hover:scale-110 group-hover:animate-icon-bounce">
+                  <feature.icon className="h-5 w-5" />
+                </div>
+                <h3 className="font-heading text-lg font-semibold text-foreground transition-colors duration-300 group-hover:text-primary">
+                  {feature.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {feature.description}
+                </p>
               </div>
-              <h3 className="font-heading text-lg font-semibold text-foreground">
-                {feature.title}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                {feature.description}
-              </p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

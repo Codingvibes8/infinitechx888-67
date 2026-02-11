@@ -23,17 +23,27 @@ export function WhatWeBuild() {
         </div>
 
         <div className="mx-auto mt-16 grid max-w-4xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {items.map((item) => (
-            <div
-              key={item.label}
-              className="flex items-center gap-4 rounded-lg border border-border/40 bg-card p-5 transition-colors hover:border-primary/40"
-            >
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                <item.icon className="h-5 w-5" />
+          {items.map((item, i) => {
+            const delays = [
+              "animate-card-enter",
+              "animate-card-enter-d1",
+              "animate-card-enter-d2",
+              "animate-card-enter-d3",
+              "animate-card-enter-d4",
+              "animate-card-enter-d5",
+            ];
+            return (
+              <div
+                key={item.label}
+                className={`group card-shine card-glow card-animate-init flex items-center gap-4 rounded-lg border border-border/40 bg-card p-5 transition-all duration-300 hover:border-primary/40 hover:-translate-y-1 hover:shadow-lg ${delays[i] || delays[5]}`}
+              >
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary/20 group-hover:rotate-6 group-hover:scale-110">
+                  <item.icon className="h-5 w-5" />
+                </div>
+                <span className="font-medium text-foreground transition-colors duration-300 group-hover:text-primary">{item.label}</span>
               </div>
-              <span className="font-medium text-foreground">{item.label}</span>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

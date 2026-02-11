@@ -20,19 +20,27 @@ export function Results() {
         </div>
 
         <div className="mx-auto mt-16 grid max-w-4xl gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {stats.map((stat) => (
-            <div
-              key={stat.label}
-              className="flex flex-col items-center rounded-xl border border-border/40 bg-card p-8 text-center"
-            >
-              <span className="font-heading text-4xl font-bold text-primary">
-                {stat.value}
-              </span>
-              <span className="mt-2 text-sm text-muted-foreground">
-                {stat.label}
-              </span>
-            </div>
-          ))}
+          {stats.map((stat, i) => {
+            const delays = [
+              "animate-card-enter",
+              "animate-card-enter-d1",
+              "animate-card-enter-d2",
+              "animate-card-enter-d3",
+            ];
+            return (
+              <div
+                key={stat.label}
+                className={`group card-glow card-animate-init flex flex-col items-center rounded-xl border border-border/40 bg-card p-8 text-center transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-lg ${delays[i] || delays[3]}`}
+              >
+                <span className="font-heading text-4xl font-bold text-primary transition-transform duration-300 group-hover:scale-110">
+                  {stat.value}
+                </span>
+                <span className="mt-2 text-sm text-muted-foreground">
+                  {stat.label}
+                </span>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

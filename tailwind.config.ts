@@ -87,6 +87,26 @@ const config: Config = {
           from: { backgroundPosition: "200% center" },
           to: { backgroundPosition: "-200% center" },
         },
+        "card-enter": {
+          from: { opacity: "0", transform: "translateY(20px) scale(0.97)" },
+          to: { opacity: "1", transform: "translateY(0) scale(1)" },
+        },
+        shimmer: {
+          "0%": { backgroundPosition: "-200% 0" },
+          "100%": { backgroundPosition: "200% 0" },
+        },
+        "border-glow": {
+          "0%, 100%": { borderColor: "hsl(var(--border))" },
+          "50%": { borderColor: "hsl(var(--primary) / 0.6)" },
+        },
+        "icon-bounce": {
+          "0%, 100%": { transform: "scale(1)" },
+          "50%": { transform: "scale(1.15)" },
+        },
+        "counter-up": {
+          from: { opacity: "0", transform: "translateY(12px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -97,6 +117,16 @@ const config: Config = {
         "slide-in-left-delayed": "slide-in-left 0.7s cubic-bezier(0.16,1,0.3,1) 0.15s forwards",
         "scale-in": "scale-in 0.8s cubic-bezier(0.16,1,0.3,1) 0.3s forwards",
         float: "float 4s ease-in-out infinite",
+        "card-enter": "card-enter 0.6s cubic-bezier(0.16,1,0.3,1) forwards",
+        "card-enter-d1": "card-enter 0.6s cubic-bezier(0.16,1,0.3,1) 0.1s forwards",
+        "card-enter-d2": "card-enter 0.6s cubic-bezier(0.16,1,0.3,1) 0.2s forwards",
+        "card-enter-d3": "card-enter 0.6s cubic-bezier(0.16,1,0.3,1) 0.3s forwards",
+        "card-enter-d4": "card-enter 0.6s cubic-bezier(0.16,1,0.3,1) 0.4s forwards",
+        "card-enter-d5": "card-enter 0.6s cubic-bezier(0.16,1,0.3,1) 0.5s forwards",
+        shimmer: "shimmer 3s linear infinite",
+        "border-glow": "border-glow 2s ease-in-out infinite",
+        "icon-bounce": "icon-bounce 0.4s cubic-bezier(0.16,1,0.3,1)",
+        "counter-up": "counter-up 0.5s cubic-bezier(0.16,1,0.3,1) forwards",
       },
     },
   },

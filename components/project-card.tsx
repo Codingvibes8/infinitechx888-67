@@ -7,14 +7,14 @@ import type { Project } from "@/lib/data/projects";
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
-    <article className="group overflow-hidden rounded-xl border border-border/40 bg-card transition-all hover:border-primary/40">
+    <article className="group card-shine card-glow overflow-hidden rounded-xl border border-border/40 bg-card transition-all duration-300 hover:border-primary/40 hover:-translate-y-2 hover:shadow-xl">
       {/* Image */}
       <div className="relative aspect-[3/2] overflow-hidden">
         <Image
           src={project.image || "/placeholder.svg"}
           alt={`${project.title} project screenshot`}
           fill
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
         <div
@@ -23,7 +23,7 @@ export function ProjectCard({ project }: { project: Project }) {
         />
         <Badge
           variant="secondary"
-          className="absolute left-4 top-4 border-border/60 bg-background/80 text-foreground backdrop-blur-sm"
+          className="absolute left-4 top-4 border-border/60 bg-background/80 text-foreground backdrop-blur-sm transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground"
         >
           {project.industry}
         </Badge>
@@ -32,7 +32,7 @@ export function ProjectCard({ project }: { project: Project }) {
       {/* Content */}
       <div className="flex flex-col gap-5 p-6">
         <div>
-          <h3 className="font-heading text-xl font-bold text-foreground">
+          <h3 className="font-heading text-xl font-bold text-foreground transition-colors duration-300 group-hover:text-primary">
             {project.title}
           </h3>
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
@@ -45,7 +45,7 @@ export function ProjectCard({ project }: { project: Project }) {
           {project.services.map((service) => (
             <span
               key={service.name}
-              className="inline-flex items-center gap-1.5 rounded-full border border-border/40 bg-muted px-3 py-1 text-xs font-medium text-muted-foreground"
+              className="inline-flex items-center gap-1.5 rounded-full border border-border/40 bg-muted px-3 py-1 text-xs font-medium text-muted-foreground transition-all duration-300 group-hover:border-primary/30 group-hover:bg-primary/5"
             >
               <service.icon className="h-3.5 w-3.5 text-primary" />
               {service.name}
@@ -71,11 +71,11 @@ export function ProjectCard({ project }: { project: Project }) {
           <Button
             asChild
             variant="outline"
-            className="mt-auto gap-2 self-start bg-transparent"
+            className="mt-auto gap-2 self-start bg-transparent transition-all duration-300 group-hover:border-primary/40 group-hover:text-primary"
           >
             <Link href={project.liveURL} target="_blank" rel="noopener noreferrer">
               View Live Site
-              <ArrowUpRight className="h-4 w-4" />
+              <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
           </Button>
         )}

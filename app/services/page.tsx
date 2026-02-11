@@ -127,33 +127,43 @@ export default function ServicesPage() {
       <section className="border-t border-border/40 bg-card py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid gap-8 lg:grid-cols-2">
-            {services.map((service) => (
-              <div
-                key={service.title}
-                className="flex flex-col rounded-xl border border-border/40 bg-background p-8 transition-all hover:border-primary/40"
-              >
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                  <service.icon className="h-6 w-6" />
+            {services.map((service, i) => {
+              const delays = [
+                "animate-card-enter",
+                "animate-card-enter-d1",
+                "animate-card-enter-d2",
+                "animate-card-enter-d3",
+                "animate-card-enter-d4",
+                "animate-card-enter-d5",
+              ];
+              return (
+                <div
+                  key={service.title}
+                  className={`group card-shine card-glow card-animate-init flex flex-col rounded-xl border border-border/40 bg-background p-8 transition-all duration-300 hover:border-primary/40 hover:-translate-y-1.5 hover:shadow-xl ${delays[i] || delays[5]}`}
+                >
+                  <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary/20 group-hover:scale-110 group-hover:animate-icon-bounce">
+                    <service.icon className="h-6 w-6" />
+                  </div>
+                  <h2 className="font-heading text-xl font-bold text-foreground transition-colors duration-300 group-hover:text-primary">
+                    {service.title}
+                  </h2>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                    {service.description}
+                  </p>
+                  <ul className="mt-6 grid grid-cols-2 gap-3">
+                    {service.features.map((feature) => (
+                      <li
+                        key={feature}
+                        className="flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-300 group-hover:text-foreground/80"
+                      >
+                        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary transition-transform duration-300 group-hover:scale-125" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <h2 className="font-heading text-xl font-bold text-foreground">
-                  {service.title}
-                </h2>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  {service.description}
-                </p>
-                <ul className="mt-6 grid grid-cols-2 gap-3">
-                  {service.features.map((feature) => (
-                    <li
-                      key={feature}
-                      className="flex items-center gap-2 text-sm text-muted-foreground"
-                    >
-                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
