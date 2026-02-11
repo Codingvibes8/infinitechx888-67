@@ -40,13 +40,13 @@ export function Hero() {
             </p>
 
             <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
-              <Button asChild size="lg" className="gap-2">
+              <Button asChild size="lg" className="gap-2 opacity-0 animate-slide-in-left hover:scale-105 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300">
                 <Link href="/contact">
                   Get a Free Website Audit
-                  <ArrowRight className="h-4 w-4" />
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg">
+              <Button asChild variant="outline" size="lg" className="opacity-0 animate-slide-in-left-delayed hover:scale-105 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300">
                 <Link href="/pricing">See Pricing</Link>
               </Button>
             </div>
@@ -77,14 +77,14 @@ export function Hero() {
           </div>
 
           {/* Image column */}
-          <div className="relative mx-auto w-full max-w-lg lg:max-w-none">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-border/40 shadow-2xl shadow-primary/10">
+          <div className="relative mx-auto w-full max-w-lg lg:max-w-none opacity-0 animate-scale-in">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-border/40 shadow-2xl shadow-primary/10 animate-float hover:shadow-primary/25 transition-shadow duration-500">
               <Image
                 src="/images/hero-dashboard.jpg"
                 alt="Modern high-performance website dashboard built by Infinitechx"
                 fill
                 priority
-                className="object-cover"
+                className="object-cover transition-transform duration-700 hover:scale-105"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
               {/* Overlay gradient to blend edges */}
