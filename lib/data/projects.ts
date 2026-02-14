@@ -31,174 +31,129 @@ export interface Project {
 }
 
 export const projects: Project[] = [
-  {
-    slug: "barberpro",
-    title: "BarberPro",
-    industry: "Barber",
-    description:
-      "BarberPro needed a complete digital transformation to compete in the busy London restaurant scene. We created a hyperlocal website with an integrated booking system and AI chatbot to streamline operations.",
-    image: "/images/projects/barbers.jpg",
-    services: [
-      { icon: Globe, name: "HyperLocal Website" },
-      { icon: Calendar, name: "Booking System" },
-      { icon: MessageSquare, name: "AI Chatbot" },
-    ],
-    results: [
-      "45% increase in online reservations",
-      "68% reduction in phone call volume",
-      'Top 3 Google ranking for "best Italian restaurant in Chelsea"',
-    ],
-    liveURL: "https://v0.app/chat/barber-pro",
-  },
-  {
-    slug: "terrasculpt",
-    title: "TerraSculpt",
-    industry: "Landscaping",
-    description:
-      "TerraSculpt wanted to expand beyond their physical location. We built a local e-commerce platform that maintained their brand identity while enabling online sales.",
-    image: "/images/projects/landscaping.jpg",
-    services: [
-      { icon: ShoppingCart, name: "Local E-commerce" },
-      { icon: Search, name: "AI Local SEO" },
-    ],
-    results: [
-      "\u00A312,500 in online sales within first month",
-      "32% of sales now coming from outside local area",
-      "156% increase in Instagram followers",
-    ],
-    liveURL: "https://v0.app/chat/barber-pro",
-  },
-  {
-    slug: "elite-electric",
-    title: "Elite Electric",
-    industry: "Electrical Services",
-    description:
-      "Electrician website needed a digital solution to manage their growing base and schedule. We developed a comprehensive integrated booking and payment processing system.",
-    image: "/images/projects/electric.jpg",
-    services: [
-      { icon: Users, name: "Electrician Website" },
-      { icon: Calendar, name: "Booking System" },
-      { icon: Globe, name: "HyperLocal Website" },
-    ],
-    results: [
-      "\u00A314,580 in online sales within first month",
-      "32% of sales now coming from outside local area",
-      "156% increase in Instagram followers",
-    ],
-    liveURL: "https://sparkview.vercel.app",
-  },
-  {
-    slug: "summit-roofing",
-    title: "Summit Roofing Solutions",
-    industry: "Roofing",
-    description:
-      "Summit Roofing Solutions was struggling to attract new clients in a competitive market. We implemented a comprehensive digital strategy including a new website, local SEO, and automated review management.",
-    image: "/images/projects/roofing.jpg",
-    services: [
-      { icon: Globe, name: "HyperLocal Website" },
-      { icon: Search, name: "AI Local SEO" },
-      { icon: Star, name: "Review Management" },
-    ],
-    results: [
-      "23 new client inquiries per month (up from 8)",
-      "Google rating improved from 3.8 to 4.7 stars",
-      "First page Google ranking for 15 key local search terms",
-    ],
-    liveURL: "https://v0.app/chat/summit-roofing",
-  },
-  {
-    slug: "ai-fitness-app",
-    title: "FitPulse AI",
-    industry: "Health & Fitness",
-    description:
-      "A next-generation AI fitness application that generates personalised workout plans, tracks progress in real-time, and adapts routines based on user performance data.",
-    image: "/images/projects/fitness.jpg",
-    services: [
-      { icon: Dumbbell, name: "AI Workout Engine" },
-      { icon: Globe, name: "Progressive Web App" },
-      { icon: Users, name: "User Dashboard" },
-    ],
-    results: [
-      "10,000+ active users within 3 months",
-      "87% user retention after 30 days",
-      "4.8 star average rating on app stores",
-    ],
-    liveURL: "#",
-  },
-  {
-    slug: "secure-vault",
-    title: "SecureVault",
-    industry: "Cybersecurity",
-    description:
-      "An enterprise-grade encrypted vault for managing sensitive documents, passwords, and credentials with zero-knowledge architecture and multi-factor authentication.",
-    image: "/images/projects/securevault.jpg",
-    services: [
-      { icon: ShieldCheck, name: "Zero-Knowledge Encryption" },
-      { icon: Globe, name: "Web Application" },
-      { icon: Users, name: "Team Management" },
-    ],
-    results: [
-      "SOC 2 Type II compliance achieved",
-      "99.99% uptime since launch",
-      "500+ enterprise accounts onboarded",
-    ],
-    liveURL: "#",
-  },
-  {
-    slug: "subscription-app",
-    title: "SubSync",
-    industry: "SaaS / FinTech",
-    description:
-      "A smart subscription management platform that helps users track, manage, and optimise all their recurring payments in one beautiful dashboard with spending insights.",
-    image: "/images/projects/subscription.jpg",
-    services: [
-      { icon: CreditCard, name: "Payment Tracking" },
-      { icon: Search, name: "Smart Insights" },
-      { icon: Globe, name: "Web Application" },
-    ],
-    results: [
-      "Users save an average of \u00A3240/year on subscriptions",
-      "50,000 subscriptions tracked in first quarter",
-      "Featured in TechCrunch and Product Hunt top 5",
-    ],
-    liveURL: "#",
-  },
-  {
-    slug: "ev-charge-finder",
-    title: "ChargeMap",
-    industry: "Automotive / Green Energy",
-    description:
-      "A real-time EV charge station finder app with route planning, availability status, pricing comparison, and community reviews to help electric vehicle owners charge smarter.",
-    image: "/images/projects/evcharger.jpg",
-    services: [
-      { icon: MapPin, name: "Location Mapping" },
-      { icon: Search, name: "Smart Search" },
-      { icon: Globe, name: "Cross-Platform App" },
-    ],
-    results: [
-      "25,000+ charging stations indexed across the UK",
-      "98% accuracy on real-time availability",
-      "Partnership with 3 major charging networks",
-    ],
-    liveURL: "#",
-  },
-  {
-    slug: "code-snippet-storage",
-    title: "SnipVault",
-    industry: "Developer Tools",
-    description:
-      "A beautifully designed code snippet storage and sharing platform for developers. Supports 50+ languages with syntax highlighting, tagging, full-text search, and team collaboration.",
-    image: "/images/projects/codesnippet.jpg",
-    services: [
-      { icon: Code, name: "Code Editor" },
-      { icon: Search, name: "Full-Text Search" },
-      { icon: Users, name: "Team Collaboration" },
-    ],
-    results: [
-      "200,000+ snippets saved by developers worldwide",
-      "Integrations with VS Code and JetBrains IDEs",
-      "4.9 star rating on the Chrome Web Store",
-    ],
-    liveURL: "#",
-  },
+      {
+      title: "SolarPanel Connect",
+      industry: "Renewable Energy",
+      description:
+        "A digital platform connecting property owners with certified solar panel installation experts. The website features instant quote generation, installer comparisons, and detailed energy savings projections.",
+      image: "/images/solar-panel-project.jpg",
+      liveUrl: "https://v0-solar-panel-website-omega.vercel.app",
+      services: [
+        { icon: <Sun className="h-3.5 w-3.5 text-slate-700 mr-1.5" />, name: "Instant Solar Quotes" },
+        { icon: <Calculator className="h-3.5 w-3.5 text-slate-700 mr-1.5" />, name: "Energy Savings Calculator" },
+        { icon: <ShieldCheck className="h-3.5 w-3.5 text-slate-700 mr-1.5" />, name: "Certified Installer Network" },
+      ],
+      results: [
+        "72% increase in installation inquiries",
+        "Average $1,200 annual savings projected per household",
+        "48% faster installation scheduling process",
+      ],
+    },
+    {
+      title: "Plumbing Hub",
+      industry: "Construction",
+      description:
+        "Plumbing Hub required a digital solution to streamline emergency plumbing services and preventive maintenance scheduling. We developed a responsive platform with video consultation, part ordering, and priority dispatch system for urgent plumbing needs.",
+      image: "/images/plumbing-project.jpg",
+      liveUrl: "https://v0-plumbers.vercel.app/",
+      services: [
+        { icon: <Users className="h-3.5 w-3.5 text-slate-700 mr-1.5" />, name: "Plumber Dispatch System" },
+        { icon: <Video className="h-3.5 w-3.5 text-slate-700 mr-1.5" />, name: "Video Consultation" },
+        { icon: <ShoppingCart className="h-3.5 w-3.5 text-slate-700 mr-1.5" />, name: "Parts Ordering" },
+      ],
+      results: [
+        "92% customer satisfaction rate for emergency calls",
+        "34% reduction in call-to-dispatch time",
+        "28% increase in preventive maintenance contracts",
+      ],
+    },
+    {
+      title: "Roofing Hub",
+      industry: "Construction",
+      description:
+        "Roofing Hub needed a platform to connect homeowners with certified roofing contractors for installations, repairs, and inspections. We built a comprehensive system with 3D roof visualization, material estimation, and warranty tracking features.",
+      image: "/roofing-contractor-working-on-modern-roof.jpg",
+      liveUrl: "https://example.com/roofing-hub",
+      services: [
+        { icon: <Home className="h-3.5 w-3.5 text-slate-700 mr-1.5" />, name: "Roof Visualization Tool" },
+        { icon: <Calculator className="h-3.5 w-3.5 text-slate-700 mr-1.5" />, name: "Material Estimator" },
+        { icon: <Shield className="h-3.5 w-3.5 text-slate-700 mr-1.5" />, name: "Warranty Management" },
+      ],
+      results: [
+        "65% more accurate roof repair estimates",
+        "43% increase in roof installation bookings",
+        "Average 4.8/5 star rating from 2,400+ customers",
+      ],
+    },
+    {
+      title: "Subscription Management App",
+      industry: "Tech",
+      description:
+        "A comprehensive subscription management platform that helps businesses track, analyze, and optimize their recurring revenue streams. We built an AI-powered dashboard with churn prediction, billing automation, and customer lifecycle analytics.",
+      image: "/images/subsflow-project.png",
+      liveUrl: "https://example.com/subscription-app",
+      services: [
+        { icon: <PieChart className="h-3.5 w-3.5 text-slate-700 mr-1.5" />, name: "Revenue Analytics" },
+        { icon: <RefreshCw className="h-3.5 w-3.5 text-slate-700 mr-1.5" />, name: "Billing Automation" },
+        { icon: <TrendingUp className="h-3.5 w-3.5 text-slate-700 mr-1.5" />, name: "Churn Prediction" },
+      ],
+      results: [
+        "31% reduction in involuntary churn",
+        "Automated 15,000+ monthly subscription renewals",
+        "Saved 20+ hours weekly on billing management",
+      ],
+    },
+    {
+      title: "AI Meeting Summarizer",
+      industry: "Tech",
+      description:
+        "An AI-powered tool that automatically transcribes, summarizes, and extracts action items from meetings. We developed a platform that integrates with popular conferencing tools and provides searchable meeting archives with smart tagging.",
+      image: "/ai-meeting-transcription-technology.jpg",
+      liveUrl: "https://example.com/ai-meeting",
+      services: [
+        { icon: <FileText className="h-3.5 w-3.5 text-slate-700 mr-1.5" />, name: "Auto Transcription" },
+        { icon: <Zap className="h-3.5 w-3.5 text-slate-700 mr-1.5" />, name: "AI Summarization" },
+        { icon: <ListTodo className="h-3.5 w-3.5 text-slate-700 mr-1.5" />, name: "Action Item Extraction" },
+      ],
+      results: [
+        "Saved 12+ hours monthly per team on meeting notes",
+        "95% accuracy in action item identification",
+        "Integrated with 8+ video conferencing platforms",
+      ],
+    },
+    {
+      title: "EV Charger Finder App",
+      industry: "Tech",
+      description:
+        "A mobile application that helps electric vehicle owners locate, navigate to, and pay for EV charging stations. We created a real-time platform with availability tracking, pricing comparison, and route optimization for long trips.",
+      image: "/electric-vehicle-charging-station-map.jpg",
+      liveUrl: "https://example.com/ev-charger",
+      services: [
+        { icon: <MapPin className="h-3.5 w-3.5 text-slate-700 mr-1.5" />, name: "Real-time Charger Locator" },
+        { icon: <CreditCard className="h-3.5 w-3.5 text-slate-700 mr-1.5" />, name: "Integrated Payment" },
+      ],
+      results: [
+        "Mapped 45,000+ charging stations nationwide",
+        "Reduced average charging station search time by 73%",
+        "Processed 8,500+ monthly charging sessions",
+      ],
+    },
+    {
+      title: "Accounting Software App",
+      industry: "Tech",
+      description:
+        "A modern accounting platform that automates invoicing, expense tracking, and financial reconciliation for growing businesses. We built a solution that integrates with banking APIs and provides real-time cash flow visibility.",
+      image: "/accounting-software-dashboard-financial.jpg",
+      liveUrl: "https://example.com/accounting-app",
+      services: [
+        { icon: <Receipt className="h-3.5 w-3.5 text-slate-700 mr-1.5" />, name: "Smart Invoicing" },
+        { icon: <CreditCard className="h-3.5 w-3.5 text-slate-700 mr-1.5" />, name: "Expense Tracking" },
+        { icon: <RefreshCw className="h-3.5 w-3.5 text-slate-700 mr-1.5" />, name: "Auto-reconciliation" },
+      ],
+      results: [
+        "Reduced invoice processing time by 78%",
+        "Cut late payments by 42% with automated reminders",
+        "Eliminated 15+ hours monthly on bank reconciliation",
+      ],
+    },
 ];
