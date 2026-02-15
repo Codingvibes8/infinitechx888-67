@@ -25,8 +25,8 @@ export function Navbar() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-xl">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2" aria-label="Infinitechx Home">
-          <Microchip className="h-8 w-8 rounded-full" />
+        <Link href="/" className="flex items-center gap-1" aria-label="Infinitechx Home">
+          <Microchip className="h-8 w-8 rounded-full text-blue-700" />
             <span className="font-heading text-xl font-bold tracking-tight text-foreground">
             Infinite<span className="text-primary">chx</span>
           </span>

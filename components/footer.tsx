@@ -30,8 +30,8 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-3">
           {/* Brand */}
           <div className="space-y-4">
-            <Link href="/" className="flex items-center gap-2" aria-label="Infinitechx Home">
-          <Microchip className="h-8 w-8 rounded-full" />
+            <Link href="/" className="flex items-center gap-1" aria-label="Infinitechx Home">
+          <Microchip className="h-8 w-8 rounded-full text-blue-700" />
             <span className="font-heading text-xl font-bold tracking-tight text-foreground">
             Infinite<span className="text-primary">chx</span>
           </span>
