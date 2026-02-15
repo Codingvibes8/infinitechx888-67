@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-
+import { Microchip } from "lucide-react";
 const footerLinks = [
   {
     title: "Company",
@@ -30,18 +30,12 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-3">
           {/* Brand */}
           <div className="space-y-4">
-            <Link href="/" className="inline-flex items-center gap-2.5" aria-label="Infinitechx Home">
-              <Image
-                src="/images/logo.jpg"
-                alt="Infinitechx logo"
-                width={36}
-                height={36}
-                className="h-8 w-8 rounded-full object-cover ring-1 ring-border/60 brightness-110 hue-rotate-[200deg] saturate-150 drop-shadow-[0_0_6px_hsl(220_100%_61%/0.4)]"
-              />
-              <span className="font-heading text-xl font-bold tracking-tight text-foreground">
-                Infinite<span className="text-primary">chx</span>
-              </span>
-            </Link>
+            <Link href="/" className="flex items-center gap-2" aria-label="Infinitechx Home">
+          <Microchip className="h-8 w-8 rounded-full" />
+            <span className="font-heading text-xl font-bold tracking-tight text-foreground">
+            Infinite<span className="text-primary">chx</span>
+          </span>
+        </Link>
             <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
               Modern websites that grow your business. We transform outdated
               WordPress sites into fast, secure, high-converting Next.js

@@ -9,6 +9,7 @@ import {
   Dumbbell,
   ShieldCheck,
   CreditCard,
+  Share2,
   MapPin,
   Code,
   Sun,
@@ -84,7 +85,7 @@ export const projects: Project[] = [
       description:
         "Roofing Hub needed a platform to connect homeowners with certified roofing contractors for installations, repairs, and inspections. We built a comprehensive system with 3D roof visualization, material estimation, and warranty tracking features.",
       image: "/roofing-contractor-working-on-modern-roof.jpg",
-      liveUrl: "https://example.com/roofing-hub",
+      liveUrl: "https://summit-roofs.vercel.app",
       services: [
         { icon: <Home className="h-3.5 w-3.5 text-slate-700 mr-1.5" />, name: "Roof Visualization Tool" },
         { icon: <Calculator className="h-3.5 w-3.5 text-slate-700 mr-1.5" />, name: "Material Estimator" },
@@ -101,8 +102,8 @@ export const projects: Project[] = [
       industry: "Tech",
       description:
         "A comprehensive subscription management platform that helps businesses track, analyze, and optimize their recurring revenue streams. We built an AI-powered dashboard with churn prediction, billing automation, and customer lifecycle analytics.",
-      image: "/images/subsflow-project.png",
-      liveUrl: "https://example.com/subscription-app",
+      image: "/sub-manager.png",
+      liveUrl: "https://subscription-management-platform26.vercel.app/",
       services: [
         { icon: <PieChart className="h-3.5 w-3.5 text-slate-700 mr-1.5" />, name: "Revenue Analytics" },
         { icon: <RefreshCw className="h-3.5 w-3.5 text-slate-700 mr-1.5" />, name: "Billing Automation" },
@@ -120,7 +121,7 @@ export const projects: Project[] = [
       description:
         "An AI-powered tool that automatically transcribes, summarizes, and extracts action items from meetings. We developed a platform that integrates with popular conferencing tools and provides searchable meeting archives with smart tagging.",
       image: "/ai-meeting-transcription-technology.jpg",
-      liveUrl: "https://example.com/ai-meeting",
+      liveUrl: "https://meting-ai2r-46jh.vercel.app/",
       services: [
         { icon: <FileText className="h-3.5 w-3.5 text-slate-700 mr-1.5" />, name: "Auto Transcription" },
         { icon: <Zap className="h-3.5 w-3.5 text-slate-700 mr-1.5" />, name: "AI Summarization" },
@@ -132,39 +133,59 @@ export const projects: Project[] = [
         "Integrated with 8+ video conferencing platforms",
       ],
     },
-    {
-      title: "EV Charger Finder App",
-      industry: "Tech",
+ {
+      title: "ScriptAI – Content Script Generator",
+      industry: "Content Creation",
       description:
-        "A mobile application that helps electric vehicle owners locate, navigate to, and pay for EV charging stations. We created a real-time platform with availability tracking, pricing comparison, and route optimization for long trips.",
-      image: "/electric-vehicle-charging-station-map.jpg",
-      liveUrl: "https://example.com/ev-charger",
+        "ScriptAI is an AI-powered web application designed for content creators to generate, edit, and optimize video scripts. Built with creativity and efficiency as first-class citizens.",
+      image: "/images/script-ai.png",
+      liveUrl: "https://script-ai-cbav.vercel.app/",
       services: [
-        { icon: <MapPin className="h-3.5 w-3.5 text-slate-700 mr-1.5" />, name: "Real-time Charger Locator" },
-        { icon: <CreditCard className="h-3.5 w-3.5 text-slate-700 mr-1.5" />, name: "Integrated Payment" },
+        { icon: <Sparkles className="h-3.5 w-3.5 text-slate-700 mr-1.5" />, name: "AI Script Generation" },
+        { icon: <FileText className="h-3.5 w-3.5 text-slate-700 mr-1.5" />, name: "Template Library" },
       ],
+      featured:true,
       results: [
-        "Mapped 45,000+ charging stations nationwide",
-        "Reduced average charging station search time by 73%",
-        "Processed 8,500+ monthly charging sessions",
+        "Reduced script writing time by 70%",
+        "Increased content output for creators by 3x",
+        "Improved engagement rates with optimized hooks",
       ],
     },
     {
-      title: "Accounting Software App",
+      title: "EnvVault – Secure Env Storage",
       industry: "Tech",
       description:
-        "A modern accounting platform that automates invoicing, expense tracking, and financial reconciliation for growing businesses. We built a solution that integrates with banking APIs and provides real-time cash flow visibility.",
-      image: "/accounting-software-dashboard-financial.jpg",
-      liveUrl: "https://example.com/accounting-app",
+        "EnvVault is an enterprise-grade web application tailored for developers to securely store, manage, and sync environment variables across teams. Built with security and user experience as first-class citizens.",
+      image: "/envVault.png",
+      liveUrl: "https://env-vault-beryl.vercel.app",
       services: [
-        { icon: <Receipt className="h-3.5 w-3.5 text-slate-700 mr-1.5" />, name: "Smart Invoicing" },
-        { icon: <CreditCard className="h-3.5 w-3.5 text-slate-700 mr-1.5" />, name: "Expense Tracking" },
-        { icon: <RefreshCw className="h-3.5 w-3.5 text-slate-700 mr-1.5" />, name: "Auto-reconciliation" },
+        { icon: <Lock className="h-3.5 w-3.5 text-slate-700 mr-1.5" />, name: "Encrypted Env Storage" },
+        { icon: <Share2 className="h-3.5 w-3.5 text-slate-700 mr-1.5" />, name: "Team Syncing" },
       ],
+      featured:false,
       results: [
-        "Reduced invoice processing time by 78%",
-        "Cut late payments by 42% with automated reminders",
-        "Eliminated 15+ hours monthly on bank reconciliation",
+        "Improved developer workflow efficiency by 52%",
+        "Eliminated manual env file sharing",
+        "Enhanced security compliance for dev teams",
       ],
     },
+         {
+      title: "Stride&Style E-commerce Platform",
+      industry: "E-commerce",
+      description:
+        "An e-commerce platform for trendy footwear and clothing brands featuring AI personalised shopping experiences, dynamic product recommendations, and seamless checkout process.",
+      image: "/ecommerce-hero.png",
+      liveUrl: "https://stride-styles-tje3.vercel.app/",
+      services: [
+        { icon: <Sparkles className="h-3.5 w-3.5 text-slate-700 mr-1.5" />, name: "AI Product Recommendations" },
+        { icon: <ShoppingCart className="h-3.5 w-3.5 text-slate-700 mr-1.5" />, name: "Smart Cart & Checkout" },
+        { icon: <CreditCard className="h-3.5 w-3.5 text-slate-700 mr-1.5" />, name: "Secure Payment Gateway" },
+      ],
+      featured: true,
+      results: [
+        "45% increase in conversion rate",
+        "32% higher average order value with AI recommendations",
+        "28% reduction in cart abandonment",
+      ],
+    },  
 ];
