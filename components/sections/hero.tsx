@@ -77,7 +77,7 @@ export function Hero() {
 
           {/* Image column */}
           <div className="relative mx-auto w-full max-w-lg lg:max-w-none opacity-0 animate-scale-in">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-border/40 shadow-2xl shadow-primary/10 animate-float hover:shadow-primary/25 transition-shadow duration-500">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-border/40 shadow-2xl shadow-primary/10 hover:shadow-primary/25 transition-shadow duration-500">
               <video
                 src="/hero-video-compressed.mp4"
                 autoPlay

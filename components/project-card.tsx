@@ -9,7 +9,7 @@ export function ProjectCard({ project }: { project: Project }) {
   return (
     <article className="group card-shine card-glow overflow-hidden rounded-xl border border-border/40 bg-card transition-all duration-300 hover:border-primary/40 hover:-translate-y-2 hover:shadow-xl">
       {/* Image */}
-      <div className="relative aspect-[3/2] overflow-hidden">
+      <Link href={`/projects/${project.slug}`} className="relative aspect-[3/2] overflow-hidden block">
         <Image
           src={project.image || "/placeholder.svg"}
           alt={`${project.title} project screenshot`}
@@ -23,11 +23,11 @@ export function ProjectCard({ project }: { project: Project }) {
         />
         <Badge
           variant="secondary"
-          className="absolute left-4 top-4 border-border/60 bg-background/80 text-foreground backdrop-blur-sm transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground"
+          className="absolute left-4 top-4 border-border/60 bg-background/80 text-foreground backdrop-blur-sm transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground pointer-events-none"
         >
           {project.industry}
         </Badge>
-      </div>
+      </Link>
 
       {/* Content */}
       <div className="flex flex-col gap-5 p-6">
