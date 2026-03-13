@@ -26,7 +26,14 @@ import {
   TrendingUp,
   FileText,
   Zap,
-  ListTodo
+  ListTodo,
+  Leaf,
+  Scissors,
+  Droplets,
+  HardHat,
+  Building2,
+  Wrench,
+  BatteryCharging
 
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
@@ -49,6 +56,25 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+     {
+      slug: "taste-of-ocean",
+      title: "Taste of Ocean – Restaurant & Takeaway",
+      industry: "Food & Beverage",
+      description:
+        "A full-stack e-commerce platform for a restaurant and takeaway business. It features a responsive digital menu, a seamless online ordering system, and secure payment processing for both delivery and collection orders.",
+      image: "/grilled-fish-dish.png",
+      liveURL: "https://taste-of-ocean.vercel.app/",
+      services: [
+        { icon: ShoppingCart, name: "Online Food Ordering" },
+        { icon: CreditCard, name: "Secure Checkout" },
+        { icon: MapPin, name: "Delivery & Collection System" },
+      ],
+      results: [
+        "Streamlined online ordering process for takeaway and delivery",
+        "Fully responsive design for mobile and desktop users",
+        "Secure and seamless payment integration",
+      ],
+    },
        {
       slug: "stride-style-ecommerce",
       title: "Stride&Style E-commerce Platform",
@@ -69,6 +95,44 @@ export const projects: Project[] = [
         "28% reduction in cart abandonment",
       ],
     },
+        {
+      slug: "verdescape-landscaping",
+      title: "VerdeScape – Enterprise Landscaping",
+      industry: "Landscaping",
+      description:
+        "VerdeScape is an award-winning residential and commercial landscaping company. We built a premium digital platform showcasing their expertise in garden design, lawn care, tree surgery, irrigation systems, and seasonal maintenance with an immersive project gallery and seamless enquiry flow.",
+      image: "/verdescape-landscaping.jpg",
+      liveURL: "https://v0-landscaper-landing-page-steel.vercel.app/",
+      services: [
+        { icon: Leaf, name: "Garden Design & Lawn Care" },
+        { icon: Scissors, name: "Tree Surgery" },
+        { icon: Droplets, name: "Irrigation Systems" },
+      ],
+      results: [
+        "60% increase in project enquiries within 3 months",
+        "Featured 6+ signature landscape projects in interactive gallery",
+        "35% boost in seasonal maintenance contract sign-ups",
+      ],
+    },
+    {
+      slug: "fortis-group-construction",
+      title: "Fortis Group – Premium Construction",
+      industry: "Construction",
+      description:
+        "Fortis Group is a world-class construction and development firm with 25+ years of building excellence. We built a high-impact digital presence featuring their commercial construction, residential development, infrastructure & civil engineering, and project management services with landmark project showcases.",
+      image: "/fortis-construction.jpg",
+      liveURL: "https://v0-construction-landing-page-sandy.vercel.app/",
+      services: [
+        { icon: Building2, name: "Commercial & Residential Development" },
+        { icon: HardHat, name: "Infrastructure & Civil Engineering" },
+        { icon: Wrench, name: "Renovation & Project Management" },
+      ],
+      results: [
+        "Showcased 4 landmark projects across commercial and civil sectors",
+        "42% increase in high-value project tender submissions",
+        "Established strong digital presence for a 25-year industry leader",
+      ],
+    },
       {
       slug: "solar-panel-connect",
       title: "SolarPanel Connect",
@@ -76,7 +140,7 @@ export const projects: Project[] = [
       description:
         "A digital platform connecting property owners with certified solar panel installation experts. The website features instant quote generation, installer comparisons, and detailed energy savings projections.",
       image: "/solar-panel-project.jpg",
-      liveURL: "https://v0-solar-panel-website-omega.vercel.app",
+      liveURL: "https://v0-solarpathe.vercel.app",
       services: [
         { icon: Sun, name: "Instant Solar Quotes" },
         { icon: Calculator, name: "Energy Savings Calculator" },
@@ -116,7 +180,7 @@ export const projects: Project[] = [
       description:
         "Plumbing Hub required a digital solution to streamline emergency plumbing services and preventive maintenance scheduling. We developed a responsive platform with video consultation, part ordering, and priority dispatch system for urgent plumbing needs.",
       image: "/plumber-service3.jpg",
-      liveURL: "https://v0-plumbers.vercel.app/",
+      liveURL: "https://plumberscape.vercel.app/ ",
       services: [
         { icon: Users, name: "Plumber Dispatch System" },
         { icon: Video, name: "Video Consultation" },
@@ -224,4 +288,24 @@ export const projects: Project[] = [
       ],
     },
     
+    {
+      slug: "electricjamex",
+      title: "ElectricJamex \u2013 Certified Electrician",
+      industry: "Electrical Services",
+      description:
+        "ElectricJamex is a NAPIT-approved and Which? Trusted Trader electrician serving North West London. We built a high-converting digital platform showcasing their full range of services including EV charger installation, air conditioning, electrical safety certificates, PAT testing, outdoor lighting, and emergency flood damage repair.",
+      image: "/electricjamex.jpg",
+      liveURL: "https://electric-jamez-website-build-bjcx.vercel.app/",
+      services: [
+        { icon: Zap, name: "EV Charger & Rewiring" },
+        { icon: BatteryCharging, name: "Air Conditioning & PAT Testing" },
+        { icon: ShieldCheck, name: "NAPIT Safety Certificates" },
+      ],
+      results: [
+        "NAPIT approved & Which? Trusted Trader accreditation showcased",
+        "55% increase in free quote requests from local homeowners",
+        "Covers 6+ specialist electrical services across North West London",
+      ],
+    },
+ 
   ]
