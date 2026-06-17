@@ -45,7 +45,7 @@ export function Features() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">
-            Why Upgrade With Infinitechx?
+            Why Upgrade With Scriptorcode?
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
             Everything your business needs to dominate online, built into every

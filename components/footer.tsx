@@ -30,10 +30,10 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-3">
           {/* Brand */}
           <div className="space-y-4">
-            <Link href="/" className="flex items-center gap-1" aria-label="Infinitechx Home">
+            <Link href="/" className="flex items-center gap-1" aria-label="Scriptorcode Home">
           <Microchip className="h-8 w-8 rounded-full text-blue-700" />
             <span className="font-heading text-xl font-bold tracking-tight text-foreground">
-            Infinite<span className="text-primary">chx</span>
+            Scriptor<span className="text-primary">code</span>
           </span>
         </Link>
             <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
@@ -70,14 +70,14 @@ export function Footer() {
 
         <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-border/40 pt-8 md:flex-row">
           <p className="text-sm text-muted-foreground">
-            {new Date().getFullYear()} Infinitechx. All rights reserved.
+            {new Date().getFullYear()} Scriptorcode. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <Link
               href="/contact"
               className="text-sm text-muted-foreground transition-colors hover:text-primary"
             >
-              hello@infinitechx.com
+              hello@scriptorcode.com
             </Link>
           </div>
         </div>

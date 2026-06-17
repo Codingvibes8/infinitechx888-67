@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Transparent pricing for Infinitechx website rebuild packages. Essential, Growth, and Premium plans to fit every budget.",
+    "Transparent pricing for Scriptorcode website rebuild packages. Essential, Growth, and Premium plans to fit every budget.",
 };
 
 const packages = [

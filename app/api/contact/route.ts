@@ -27,8 +27,8 @@ export async function POST(request: Request) {
 
     const resend = getResendClient();
     await resend.emails.send({
-      from: "Infinitechx <onboarding@resend.dev>",
-      to: ["hello@infinitechx.com"],
+      from: "Scriptorcode <onboarding@resend.dev>",
+      to: ["hello@scriptorcode.com"],
       replyTo: email,
       subject: `New enquiry from ${name} — ${businessName}`,
       html: `

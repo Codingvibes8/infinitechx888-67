@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Infinitechx is a modern web development studio specialising in Next.js websites that are fast, secure, beautifully designed, and built to convert.",
+    "Scriptorcode is a modern web development studio specialising in Next.js websites that are fast, secure, beautifully designed, and built to convert.",
 };
 
 const approach = [
@@ -62,7 +62,7 @@ export default function AboutPage() {
               Who We Are
             </h1>
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground text-pretty">
-              Infinitechx is a modern web development studio specialising in
+              Scriptorcode is a modern web development studio specialising in
               Next.js websites that are fast, secure, beautifully designed, and
               built to convert.
             </p>
@@ -119,13 +119,13 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Why Infinitechx */}
+      {/* Why Scriptorcode */}
       <section className="border-t border-border/40 bg-card py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
               <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">
-                Why Infinitechx?
+                Why Scriptorcode?
               </h2>
               <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
                 Built by a full-stack developer with real business experience.

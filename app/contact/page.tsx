@@ -5,15 +5,15 @@ import { ContactForm } from "@/components/contact-form";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with Infinitechx. Book a free website audit, request a proposal, or start your Next.js rebuild today.",
+    "Get in touch with Scriptorcode. Book a free website audit, request a proposal, or start your Next.js rebuild today.",
 };
 
 const contactDetails = [
   {
     icon: Mail,
     label: "Email",
-    value: "hello@infinitechx.com",
-    href: "mailto:hello@infinitechx.com",
+    value: "hello@scriptorcode.com",
+    href: "mailto:hello@scriptorcode.com",
   },
   {
     icon: MapPin,

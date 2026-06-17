@@ -8,7 +8,7 @@ import { ProjectCard } from "@/components/project-card";
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Explore our portfolio of high-performance websites and applications. From local businesses to SaaS platforms, see how Infinitechx delivers results.",
+    "Explore our portfolio of high-performance websites and applications. From local businesses to SaaS platforms, see how Scriptorcode delivers results.",
 };
 
 export default function ProjectsPage() {

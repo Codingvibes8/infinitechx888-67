@@ -1,28 +1,30 @@
 import React from "react"
 import type { Metadata, Viewport } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Toaster } from "@/components/ui/sonner";
 
-const inter = Inter({
+const cormorantGaramond = Cormorant_Garamond({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-serif",
   display: "swap",
-});
+})
 
-const spaceGrotesk = Space_Grotesk({
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-sans",
   display: "swap",
-});
+})
 
 export const metadata: Metadata = {
   title: {
-    default: "Infinitechx — Modern Websites That Grow Your Business",
-    template: "%s | Infinitechx",
+    default: "Scriptorcode — Modern Websites That Grow Your Business",
+    template: "%s | Scriptorcode",
   },
   description:
     "Upgrade from outdated WordPress to high-performance Next.js websites. Fast, secure, beautifully designed, and built to convert visitors into customers.",
@@ -35,21 +37,21 @@ export const metadata: Metadata = {
     "SEO",
     "London web agency",
   ],
-  authors: [{ name: "Infinitechx" }],
-  creator: "Infinitechx",
-  metadataBase: new URL("https://infinitechx.com"),
+  authors: [{ name: "Scriptorcode" }],
+  creator: "Scriptorcode",
+  metadataBase: new URL("https://scriptorcode.com"),
   openGraph: {
     type: "website",
     locale: "en_GB",
-    url: "https://infinitechx.com",
-    siteName: "Infinitechx",
-    title: "Infinitechx — Modern Websites That Grow Your Business",
+    url: "https://scriptorcode.com",
+    siteName: "Scriptorcode",
+    title: "Scriptorcode — Modern Websites That Grow Your Business",
     description:
       "Upgrade from outdated WordPress to high-performance Next.js websites.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Infinitechx — Modern Websites That Grow Your Business",
+    title: "Scriptorcode — Modern Websites That Grow Your Business",
     description:
       "Upgrade from outdated WordPress to high-performance Next.js websites.",
   },
@@ -71,7 +73,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en" className={`${dmSans.variable} ${cormorantGaramond.variable}`}>
       <body className="font-sans antialiased">
         <Navbar />
         <main>{children}</main>

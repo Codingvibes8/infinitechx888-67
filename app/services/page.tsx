@@ -14,7 +14,7 @@ import { Button } from "@/components/ui/button";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "From WordPress to Next.js rebuilds to custom design and SEO optimisation. Discover how Infinitechx can transform your online presence.",
+    "From WordPress to Next.js rebuilds to custom design and SEO optimisation. Discover how Scriptorcode can transform your online presence.",
 };
 
 const services = [

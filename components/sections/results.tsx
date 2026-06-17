@@ -14,7 +14,7 @@ export function Results() {
             Real Results for Real Businesses
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-muted-foreground text-pretty">
-            Businesses that switch from WordPress to Next.js with Infinitechx
+            Businesses that switch from WordPress to Next.js with Scriptorcode
             typically see dramatic improvements across every metric that matters.
           </p>
         </div>
