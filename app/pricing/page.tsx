@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { CTASection } from "@/components/cta-section";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -216,26 +217,12 @@ export default function PricingPage() {
       </section>
 
       {/* CTA */}
-      <section className="border-t border-border/40 bg-card py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">
-              Not Sure Which Package?
-            </h2>
-            <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-              Book a free call and we will recommend the perfect plan for your business.
-            </p>
-            <div className="mt-10">
-              <Button asChild size="lg" className="gap-2">
-                <Link href="/contact">
-                  Book a Free Audit
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CTASection
+        title="Not Sure Which Package?"
+        description="Book a free call and we will recommend the perfect plan for your business."
+        primary={{ label: "Book a Free Audit", href: "/contact" }}
+        background="card"
+      />
     </>
   );
 }

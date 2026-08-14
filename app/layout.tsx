@@ -48,12 +48,21 @@ export const metadata: Metadata = {
     title: "Scriptorcode — Modern Websites That Grow Your Business",
     description:
       "Upgrade from outdated WordPress to high-performance Next.js websites.",
+    images: [
+      {
+        url: "/images/hero-dashboard.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Scriptorcode — Modern Websites That Grow Your Business",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Scriptorcode — Modern Websites That Grow Your Business",
     description:
       "Upgrade from outdated WordPress to high-performance Next.js websites.",
+    images: ["/images/hero-dashboard.jpg"],
   },
   robots: {
     index: true,
@@ -67,6 +76,43 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+const organizationLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Scriptorcode",
+  url: "https://scriptorcode.com",
+  logo: "https://scriptorcode.com/images/logo.jpg",
+  description:
+    "Modern web development studio specialising in fast, secure, high-converting Next.js websites.",
+  email: "hello@scriptorcode.com",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "London",
+    addressCountry: "GB",
+  },
+  knowsAbout: [
+    "Web Development",
+    "Next.js",
+    "WordPress Migration",
+    "Custom Design",
+    "SEO Optimisation",
+    "CMS Integration",
+  ],
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "sales",
+    email: "hello@scriptorcode.com",
+    availableLanguage: ["English"],
+  },
+};
+
+const websiteLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Scriptorcode",
+  url: "https://scriptorcode.com",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -75,6 +121,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${dmSans.variable} ${cormorantGaramond.variable}`}>
       <body className="font-sans antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd) }}
+        />
         <Navbar />
         <main>{children}</main>
         <Footer />

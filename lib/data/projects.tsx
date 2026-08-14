@@ -1,6 +1,4 @@
 import {
-  Globe,
-  Calendar,
   Code2,
   Image,
   Music,
@@ -8,15 +6,12 @@ import {
   Shield,
   MessageSquare,
   ShoppingCart,
-  Search,Sparkles,
+  Sparkles,
   Users,
-  Star,
-  Dumbbell,
   ShieldCheck,
   CreditCard,
   Share2,
   MapPin,
-  Code,
   Sun,
   Calculator,
   Video,
@@ -34,7 +29,6 @@ import {
   Building2,
   Wrench,
   BatteryCharging
-
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 

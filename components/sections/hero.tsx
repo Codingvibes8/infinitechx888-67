@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { StarParticles } from "@/components/star-particles";
-import  Image from  "next/image";
+import { HeroMedia } from "@/components/hero-media";
 
 export function Hero() {
   return (
@@ -79,14 +79,7 @@ export function Hero() {
           {/* Image column */}
           <div className="relative mx-auto w-full max-w-lg lg:max-w-none opacity-0 animate-scale-in">
             <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-border/40 shadow-2xl shadow-primary/10 hover:shadow-primary/25 transition-shadow duration-500">
-              <Image
-                src="/hero-section-image.png"
-                alt="Orbit"
-                fill
-                priority
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
-                className="object-cover transition-transform duration-700 hover:scale-105"
-              /> 
+              <HeroMedia />
               {/* Overlay gradient to blend edges */}
               <div
                 className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent"
