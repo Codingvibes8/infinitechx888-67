@@ -3,6 +3,7 @@ import { Features } from "@/components/sections/features";
 import { WhatWeBuild } from "@/components/sections/what-we-build";
 import { Results } from "@/components/sections/results";
 import { Process } from "@/components/sections/process";
+import { Testimonials } from "@/components/sections/testimonials";
 import { CTA } from "@/components/sections/cta";
 
 export default function HomePage() {
@@ -12,6 +13,7 @@ export default function HomePage() {
       <Features />
       <WhatWeBuild />
       <Results />
+      <Testimonials />
       <Process />
       <CTA />
     </>
