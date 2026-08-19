@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowUpRight, CheckCircle2 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { CTASection } from "@/components/cta-section";
 import { projects } from "@/lib/data/projects";
 
 type Params = Promise<{ slug: string }>;
@@ -40,8 +41,25 @@ export default async function ProjectPage(props: { params: Params }) {
     notFound();
   }
 
+  const projectLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: project.title,
+    description: project.description,
+    url: `https://scriptorcode.com/projects/${project.slug}`,
+    image: project.image,
+    about: {
+      "@type": "Service",
+      name: `${project.title} — ${project.industry}`,
+    },
+  };
+
   return (
     <article className="min-h-screen bg-background pb-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(projectLd) }}
+      />
       {/* Hero Section */}
       <div className="relative border-b border-border/40 bg-card/50">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-32">
@@ -157,24 +175,13 @@ export default async function ProjectPage(props: { params: Params }) {
 
       {/* Embedded CTA */}
       <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-10">
-        <div className="relative isolate overflow-hidden rounded-3xl bg-secondary/30 px-6 py-24 text-center shadow-2xl sm:px-16 border border-border/50">
-          <h2 className="mx-auto max-w-2xl font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Want similar results for your business?
-          </h2>
-          <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-muted-foreground text-balance">
-             Let's discuss how we can help you achieve your goals and scale your digital presence.
-          </p>
-          <div className="mt-10 flex items-center justify-center gap-x-6">
-            <Button asChild size="lg" className="rounded-full px-8 shadow-lg transition-transform hover:scale-105">
-              <Link href="/contact">Start a Conversation</Link>
-            </Button>
-            <Button asChild variant="link" size="lg" className="text-foreground transition-colors hover:text-primary">
-               <Link href="/projects">
-                 View more projects <span aria-hidden="true" className="ml-1">→</span>
-               </Link>
-            </Button>
-          </div>
-        </div>
+        <CTASection
+          variant="card"
+          title="Want similar results for your business?"
+          description="Let's discuss how we can help you achieve your goals and scale your digital presence."
+          primary={{ label: "Start a Conversation", href: "/contact" }}
+          secondary={{ label: "View more projects →", href: "/projects", variant: "link" }}
+        />
       </div>
     </article>
   );

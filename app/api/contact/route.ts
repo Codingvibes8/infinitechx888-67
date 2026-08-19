@@ -2,6 +2,15 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { contactFormSchema } from "@/lib/schemas/contact";
 
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
 function getResendClient() {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
@@ -26,6 +35,15 @@ export async function POST(request: Request) {
       parsed.data;
 
     const resend = getResendClient();
+    const safe = {
+      name: escapeHtml(name),
+      email: escapeHtml(email),
+      businessName: escapeHtml(businessName),
+      websiteUrl: escapeHtml(websiteUrl || "Not provided"),
+      improvement: escapeHtml(improvement),
+      budget: escapeHtml(budget),
+      message: escapeHtml(message).replace(/\n/g, "<br />"),
+    };
     await resend.emails.send({
       from: "Scriptorcode <onboarding@resend.dev>",
       to: ["hello@scriptorcode.com"],
@@ -33,14 +51,14 @@ export async function POST(request: Request) {
       subject: `New enquiry from ${name} — ${businessName}`,
       html: `
         <h2>New Website Enquiry</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Business:</strong> ${businessName}</p>
-        <p><strong>Website:</strong> ${websiteUrl || "Not provided"}</p>
-        <p><strong>Looking to improve:</strong> ${improvement}</p>
-        <p><strong>Budget:</strong> ${budget}</p>
+        <p><strong>Name:</strong> ${safe.name}</p>
+        <p><strong>Email:</strong> ${safe.email}</p>
+        <p><strong>Business:</strong> ${safe.businessName}</p>
+        <p><strong>Website:</strong> ${safe.websiteUrl}</p>
+        <p><strong>Looking to improve:</strong> ${safe.improvement}</p>
+        <p><strong>Budget:</strong> ${safe.budget}</p>
         <p><strong>Message:</strong></p>
-        <p>${message}</p>
+        <p>${safe.message}</p>
       `,
     });
 

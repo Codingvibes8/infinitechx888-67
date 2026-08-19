@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import {
-  ArrowRight,
   RefreshCw,
   Paintbrush,
   Zap,
@@ -9,7 +7,7 @@ import {
   Puzzle,
   Wrench,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { CTASection } from "@/components/cta-section";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -169,30 +167,12 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA */}
-      <section className="border-t border-border/40 bg-background py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">
-              Not Sure What You Need?
-            </h2>
-            <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-              Book a free audit and we will recommend the best approach for your
-              business.
-            </p>
-            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Button asChild size="lg" className="gap-2">
-                <Link href="/contact">
-                  Book a Free Audit
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="lg">
-                <Link href="/pricing">View Pricing</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CTASection
+        title="Not Sure What You Need?"
+        description="Book a free audit and we will recommend the best approach for your business."
+        primary={{ label: "Book a Free Audit", href: "/contact" }}
+        secondary={{ label: "View Pricing", href: "/pricing" }}
+      />
     </>
   );
 }
