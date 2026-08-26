@@ -16,6 +16,7 @@ export default function HomePage() {
       <Results />
       <FeaturedWork />
       <Process />
+      <Testimonials />
       <CTA />
     </>
   );
