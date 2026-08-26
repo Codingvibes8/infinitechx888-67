@@ -1,4 +1,4 @@
-# Sriptorcode
+# Scriptorcode
 
 A modern, responsive portfolio and agency website built with Next.js 16, React 19, TypeScript, and Tailwind CSS. Features a comprehensive project showcase, pricing information, and contact capabilities.
 
