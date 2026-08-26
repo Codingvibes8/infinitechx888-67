@@ -6,7 +6,7 @@ import { StarParticles } from "@/components/star-particles";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-background py-10">
+    <section className="relative min-h-[calc(100dvh-4rem)] flex items-center overflow-hidden bg-background py-10 md:py-16">
       {/* Animated star particles drifting right to left */}
       <StarParticles count={45} />
 
@@ -19,12 +19,12 @@ export function Hero() {
         <div className="h-[600px] w-[600px] rounded-full bg-primary/20 blur-[120px]" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+      <div className="relative mx-auto w-full max-w-7xl px-6 lg:px-8">
+        <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
           {/* Text column */}
           <div className="text-center lg:text-left">
             {/* Badge */}
-            <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-border/60 bg-card px-4 py-1.5 text-sm text-muted-foreground">
+            <div className="mb-6 lg:mb-8 inline-flex items-center gap-2 rounded-full border border-border/60 bg-card px-4 py-1.5 text-sm text-muted-foreground">
               <span className="h-2 w-2 rounded-full bg-accent animate-glow" />
               Next.js Specialists
               </div>
@@ -34,11 +34,11 @@ export function Hero() {
               <span className="text-primary">Grow Your Business</span>
             </h1>
 
-            <p className="mt-6 text-lg leading-relaxed text-muted-foreground sm:text-xl text-pretty">
+            <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg lg:text-xl text-pretty">
               A mobile‑optimized, blazing‑fast, secure, and conversion‑focused Next.js rebuild that elevates your brand and turns traffic into revenue.
             </p>
 
-            <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
+            <div className="mt-8 lg:mt-10 flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
               <Button asChild size="lg" className="gap-2 opacity-0 animate-slide-in-left hover:scale-105 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300">
                 <Link href="/contact">
                   Get a Free Website Audit
@@ -51,7 +51,7 @@ export function Hero() {
             </div>
 
             {/* Social proof */}
-            <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:gap-8 lg:justify-start">
+            <div className="mt-8 lg:mt-12 flex flex-wrap justify-center gap-x-6 gap-y-3 sm:gap-8 lg:justify-start">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <span className="font-heading font-semibold text-foreground">
                   {"< 1s"}
