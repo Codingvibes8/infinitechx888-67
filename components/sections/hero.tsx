@@ -1,14 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button";
 import { StarParticles } from "@/components/star-particles";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-background py-20 sm:py-28 lg:py-36">
+    <section className="relative overflow-hidden bg-background py-10">
       {/* Animated star particles drifting right to left */}
       <StarParticles count={45} />
+
 
       {/* Subtle glow effect */}
       <div
@@ -25,8 +26,8 @@ export function Hero() {
             {/* Badge */}
             <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-border/60 bg-card px-4 py-1.5 text-sm text-muted-foreground">
               <span className="h-2 w-2 rounded-full bg-accent animate-glow" />
-              WordPress to Next.js Specialists
-            </div>
+              Next.js Specialists
+              </div>
 
             <h1 className="font-heading text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl lg:text-6xl text-balance">
               Modern Websites That{" "}
@@ -34,9 +35,7 @@ export function Hero() {
             </h1>
 
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground sm:text-xl text-pretty">
-              Upgrade your outdated WordPress site to a lightning-fast, secure,
-              high-converting Next.js experience. Custom design. Enterprise
-              performance. Built to turn visitors into customers.
+              A mobile‑optimized, blazing‑fast, secure, and conversion‑focused Next.js rebuild that elevates your brand and turns traffic into revenue.
             </p>
 
             <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
