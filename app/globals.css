@@ -1,40 +1,153 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@theme {
+  --font-sans: var(--font-sans), system-ui, sans-serif;
+  --font-heading: var(--font-serif), Georgia, serif;
+  
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-fade-in-up: fade-in-up 0.6s ease-out forwards;
+  --animate-glow: glow 3s ease-in-out infinite;
+  --animate-slide-in-left: slide-in-left 0.7s cubic-bezier(0.16,1,0.3,1) forwards;
+  --animate-slide-in-left-delayed: slide-in-left 0.7s cubic-bezier(0.16,1,0.3,1) 0.15s forwards;
+  --animate-scale-in: scale-in 0.8s cubic-bezier(0.16,1,0.3,1) 0.3s forwards;
+  --animate-float: float 4s ease-in-out infinite;
+  --animate-card-enter: card-enter 0.6s cubic-bezier(0.16,1,0.3,1) forwards;
+  --animate-card-enter-d1: card-enter 0.6s cubic-bezier(0.16,1,0.3,1) 0.1s forwards;
+  --animate-card-enter-d2: card-enter 0.6s cubic-bezier(0.16,1,0.3,1) 0.2s forwards;
+  --animate-card-enter-d3: card-enter 0.6s cubic-bezier(0.16,1,0.3,1) 0.3s forwards;
+  --animate-card-enter-d4: card-enter 0.6s cubic-bezier(0.16,1,0.3,1) 0.4s forwards;
+  --animate-card-enter-d5: card-enter 0.6s cubic-bezier(0.16,1,0.3,1) 0.5s forwards;
+  --animate-shimmer: shimmer 3s linear infinite;
+  --animate-border-glow: border-glow 2s ease-in-out infinite;
+  --animate-icon-bounce: icon-bounce 0.4s cubic-bezier(0.16,1,0.3,1);
+  --animate-counter-up: counter-up 0.5s cubic-bezier(0.16,1,0.3,1) forwards;
+
+  @keyframes accordion-down {
+    from { height: 0; }
+    to { height: var(--radix-accordion-content-height); }
   }
+  @keyframes accordion-up {
+    from { height: var(--radix-accordion-content-height); }
+    to { height: 0; }
+  }
+  @keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes glow {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+  @keyframes slide-in-left {
+    from { opacity: 0; transform: translateX(-32px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes scale-in {
+    from { opacity: 0; transform: scale(0.92); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  @keyframes card-enter {
+    from { opacity: 0; transform: translateY(20px) scale(0.97); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  @keyframes border-glow {
+    0%, 100% { border-color: var(--border); }
+    50% { border-color: color-mix(in oklch, var(--primary) 60%, transparent); }
+  }
+  @keyframes icon-bounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+  }
+  @keyframes counter-up {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+@utility text-balance {
+  text-wrap: balance;
 }
 
 @layer base {
   :root {
-    /* Scriptorcode Dark Theme — Primary palette */
-    --background: 0 0% 4%;
-    --foreground: 220 33% 97%;
-    --card: 225 7% 12.5%;
-    --card-foreground: 220 33% 97%;
-    --popover: 225 7% 12.5%;
-    --popover-foreground: 220 33% 97%;
-    --primary: 220 100% 61%;
-    --primary-foreground: 220 33% 97%;
-    --secondary: 225 7% 12.5%;
-    --secondary-foreground: 220 33% 97%;
-    --muted: 225 7% 16%;
-    --muted-foreground: 220 10% 60%;
-    --accent: 42 96% 51%;
-    --accent-foreground: 0 0% 4%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 220 33% 97%;
-    --border: 225 7% 18%;
-    --input: 225 7% 18%;
-    --ring: 220 100% 61%;
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.14 0.01 250);
+    --card: oklch(0.99 0 0);
+    --card-foreground: oklch(0.14 0.01 250);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.14 0.01 250);
+    --primary: oklch(0.65 0.15 250);
+    --primary-foreground: oklch(0.98 0.01 250);
+    --secondary: oklch(0.96 0.01 250);
+    --secondary-foreground: oklch(0.2 0.01 250);
+    --muted: oklch(0.96 0.01 250);
+    --muted-foreground: oklch(0.55 0.01 250);
+    --accent: oklch(0.96 0.01 250);
+    --accent-foreground: oklch(0.2 0.01 250);
+    --destructive: oklch(0.6 0.18 25);
+    --destructive-foreground: oklch(0.98 0 0);
+    --border: oklch(0.9 0.01 250);
+    --input: oklch(0.9 0.01 250);
+    --ring: oklch(0.65 0.15 250);
     --radius: 0.625rem;
   }
-}
-
-@layer base {
+  
+  .dark {
+    --background: oklch(0.15 0 0);
+    --foreground: oklch(0.98 0.01 250);
+    --card: oklch(0.2 0.01 250);
+    --card-foreground: oklch(0.98 0.01 250);
+    --popover: oklch(0.2 0.01 250);
+    --popover-foreground: oklch(0.98 0.01 250);
+    --primary: oklch(0.65 0.15 250);
+    --primary-foreground: oklch(0.98 0.01 250);
+    --secondary: lch(15% 3.27 265.73);
+    --secondary-foreground: oklch(0.98 0.01 250);
+    --muted: oklch(0.22 0.01 250);
+    --muted-foreground: oklch(0.7 0.05 250);
+    --accent: oklch(0.75 0.14 80);
+    --accent-foreground: oklch(0.15 0 0);
+    --destructive: oklch(0.6 0.18 25);
+    --destructive-foreground: oklch(0.98 0 0);
+    --border: oklch(0.25 0.01 250);
+    --input: oklch(0.25 0.01 250);
+    --ring: oklch(0.65 0.15 250);
+  }
+  
   * {
     @apply border-border;
   }
@@ -42,18 +155,15 @@
     @apply bg-background text-foreground;
   }
   ::selection {
-    background: hsl(220 100% 61% / 0.3);
-    color: hsl(220 33% 97%);
+    background: color-mix(in oklch, var(--primary) 30%, transparent);
+    color: var(--foreground);
   }
 }
 
 @layer utilities {
-  /* Initial state for entrance-animated cards */
   .card-animate-init {
     opacity: 0;
   }
-
-  /* Hover shine sweep overlay */
   .card-shine {
     position: relative;
     overflow: hidden;
@@ -65,7 +175,7 @@
     background: linear-gradient(
       120deg,
       transparent 30%,
-      hsl(var(--primary) / 0.06) 50%,
+      color-mix(in oklch, var(--primary) 6%, transparent) 50%,
       transparent 70%
     );
     transform: translateX(-100%);
@@ -77,25 +187,23 @@
     transform: translateX(100%);
   }
 
-  /* Hover glow shadow */
   .card-glow {
     transition: box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .card-glow:hover {
     box-shadow:
-      0 0 20px hsl(var(--primary) / 0.08),
-      0 8px 32px hsl(var(--primary) / 0.06);
+      0 0 20px color-mix(in oklch, var(--primary) 8%, transparent),
+      0 8px 32px color-mix(in oklch, var(--primary) 6%, transparent);
   }
 
-  /* Shimmer border for featured cards */
   .card-shimmer-border {
     background: linear-gradient(
       90deg,
-      hsl(var(--primary)) 0%,
-      hsl(var(--accent)) 25%,
-      hsl(var(--primary)) 50%,
-      hsl(var(--accent)) 75%,
-      hsl(var(--primary)) 100%
+      var(--primary) 0%,
+      var(--accent) 25%,
+      var(--primary) 50%,
+      var(--accent) 75%,
+      var(--primary) 100%
     );
     background-size: 200% 100%;
     animation: shimmer 3s linear infinite;
@@ -104,8 +212,6 @@
   }
 }
 
-/* Respect users who prefer reduced motion: collapse animations to a near-instant
-   jump so content never gets stuck at an invisible opacity-0 state. */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

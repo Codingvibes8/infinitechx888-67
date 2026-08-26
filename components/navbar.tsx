@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Menu, Microchip, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -51,22 +52,26 @@ export function Navbar() {
         </ul>
 
         {/* Desktop CTA */}
-        <div className="hidden md:block">
+        <div className="hidden md:flex md:items-center md:gap-4">
+          <ThemeToggle />
           <Button asChild>
             <Link href="/contact">Get a Free Audit</Link>
           </Button>
         </div>
 
-        {/* Mobile toggle */}
-        <button
-          type="button"
-          className="inline-flex items-center justify-center rounded-md p-2 text-foreground md:hidden"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label={mobileOpen ? "Close menu" : "Open menu"}
-          aria-expanded={mobileOpen}
-        >
-          {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
+          {/* Mobile toggle */}
+          <button
+            type="button"
+            className="inline-flex items-center justify-center rounded-md p-2 text-foreground"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileOpen}
+          >
+            {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile Nav */}
