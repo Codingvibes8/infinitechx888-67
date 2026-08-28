@@ -1,21 +1,23 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, MessageSquare, RefreshCw, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CTASection } from "@/components/cta-section";
+import { DepositButton } from "@/components/deposit-button";
+import { SubscribeButton } from "@/components/subscribe-button";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Pricing",
+  title: "Pricing — Scriptorcode",
   description:
-    "Transparent pricing for Scriptorcode website rebuild packages. Essential, Growth, and Premium plans to fit every budget.",
+    "Transparent pricing for Scriptorcode website rebuild packages. Essential, Growth, and Premium plans to fit every budget. Pay a 30% deposit to book.",
 };
 
 const packages = [
   {
     name: "Essential",
-    price: "950",
+    price: 950,
     description:
       "Perfect for small businesses needing a clean, modern upgrade.",
     popular: false,
@@ -32,7 +34,7 @@ const packages = [
   },
   {
     name: "Growth",
-    price: "1,950",
+    price: 1950,
     description:
       "For businesses that rely on their website for leads and want a premium, conversion-focused experience.",
     popular: true,
@@ -51,7 +53,7 @@ const packages = [
   },
   {
     name: "Premium",
-    price: "3,500",
+    price: 3500,
     description:
       "A fully bespoke, high-end brand experience with animations, advanced CMS, and custom components.",
     popular: false,
@@ -75,15 +77,27 @@ const packages = [
 const supportPlans = [
   {
     name: "Care Plan",
-    price: "49",
+    price: 49,
     description:
       "Hosting monitoring, backups, security checks, and minor updates.",
+    features: [
+      "Uptime monitoring",
+      "Weekly backups",
+      "Security scans",
+      "Minor content updates",
+    ],
   },
   {
     name: "Growth Plan",
-    price: "99",
+    price: 99,
     description:
       "Everything in Care Plan plus content updates and quarterly SEO review.",
+    features: [
+      "Everything in Care Plan",
+      "Monthly content updates",
+      "Quarterly SEO review",
+      "Priority response",
+    ],
   },
 ];
 
@@ -101,6 +115,25 @@ export default function PricingPage() {
               Transparent pricing. No hidden fees. Choose the package that fits
               your business, and let us build something exceptional.
             </p>
+
+            {/* How it works callout */}
+            <div className="mt-10 rounded-xl border border-primary/20 bg-primary/5 px-6 py-5 text-left">
+              <p className="text-sm font-semibold text-foreground mb-3">How it works</p>
+              <ol className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex gap-2.5">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/20 text-[11px] font-bold text-primary">1</span>
+                  <span>Send an enquiry — tell me about your site and goals</span>
+                </li>
+                <li className="flex gap-2.5">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/20 text-[11px] font-bold text-primary">2</span>
+                  <span>We speak, I scope the project and send a proposal</span>
+                </li>
+                <li className="flex gap-2.5">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/20 text-[11px] font-bold text-primary">3</span>
+                  <span>Pay a 30% deposit below to secure your spot and we begin</span>
+                </li>
+              </ol>
+            </div>
           </div>
         </div>
       </section>
@@ -115,6 +148,7 @@ export default function PricingPage() {
                 "animate-card-enter-d1",
                 "animate-card-enter-d2",
               ];
+              const deposit = Math.round(pkg.price * 0.3);
               return (
                 <div
                   key={pkg.name}
@@ -136,9 +170,12 @@ export default function PricingPage() {
                   </h2>
                   <div className="mt-4 flex items-baseline gap-1">
                     <span className="font-heading text-4xl font-bold text-foreground transition-transform duration-300 group-hover:scale-105 inline-block origin-left">
-                      {"£"}{pkg.price}
+                      £{pkg.price.toLocaleString()}
                     </span>
                   </div>
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    30% deposit (£{deposit}) to book · balance on completion
+                  </p>
                   <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
                     {pkg.description}
                   </p>
@@ -146,28 +183,53 @@ export default function PricingPage() {
                     {pkg.features.map((feature) => (
                       <li key={feature} className="flex items-start gap-3 text-sm">
                         <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary transition-transform duration-300 group-hover:scale-110" />
-                        <span className="text-muted-foreground transition-colors duration-300 group-hover:text-foreground/80">{feature}</span>
+                        <span className="text-muted-foreground transition-colors duration-300 group-hover:text-foreground/80">
+                          {feature}
+                        </span>
                       </li>
                     ))}
                   </ul>
-                  <div className="mt-8">
+
+                  {/* CTA buttons */}
+                  <div className="mt-8 flex flex-col gap-3">
+                    {/* Primary: Enquire first */}
                     <Button
                       asChild
                       className={cn(
                         "w-full gap-2 transition-all duration-300",
-                        pkg.popular ? "group-hover:shadow-lg group-hover:shadow-primary/20" : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+                        pkg.popular
+                          ? "group-hover:shadow-lg group-hover:shadow-primary/20"
+                          : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
                       )}
                       size="lg"
                     >
                       <Link href="/contact">
-                        Get Started
+                        <MessageSquare className="h-4 w-4" />
+                        Send Enquiry
                         <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                       </Link>
                     </Button>
+
+                    {/* Secondary: Pay deposit (after speaking with client) */}
+                    <DepositButton
+                      packageName={pkg.name}
+                      packagePrice={pkg.price}
+                    />
                   </div>
                 </div>
               );
             })}
+          </div>
+
+          {/* Deposit note */}
+          <div className="mx-auto mt-12 max-w-3xl rounded-xl border border-border/40 bg-background px-6 py-4 flex items-start gap-3">
+            <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+            <p className="text-sm text-muted-foreground">
+              <span className="font-medium text-foreground">Deposit policy: </span>
+              A 30% deposit is required to book your project slot. The remaining 70%
+              is invoiced upon completion. Deposits are non-refundable once work has begun.
+              Payments are processed securely via Stripe.
+            </p>
           </div>
         </div>
       </section>
@@ -181,6 +243,7 @@ export default function PricingPage() {
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
               Keep your site running perfectly with optional monthly support.
+              Subscribe and cancel anytime.
             </p>
           </div>
 
@@ -197,21 +260,42 @@ export default function PricingPage() {
                   </h3>
                   <div className="mt-2 flex items-baseline gap-1">
                     <span className="font-heading text-3xl font-bold text-primary transition-transform duration-300 group-hover:scale-105 inline-block origin-left">
-                      {"£"}{plan.price}
+                      £{plan.price}
                     </span>
                     <span className="text-sm text-muted-foreground">/month</span>
+                  </div>
+                  <div className="mt-1 flex items-center gap-1.5">
+                    <RefreshCw className="h-3 w-3 text-muted-foreground" />
+                    <span className="text-xs text-muted-foreground">Recurring · cancel anytime</span>
                   </div>
                   <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
                     {plan.description}
                   </p>
+                  <ul className="mt-5 space-y-2">
+                    {plan.features.map((f) => (
+                      <li key={f} className="flex items-center gap-2 text-sm text-muted-foreground">
+                        <Check className="h-3.5 w-3.5 shrink-0 text-primary" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
                   <div className="mt-6">
-                    <Button asChild variant="outline" className="w-full bg-transparent transition-all duration-300 group-hover:border-primary/40 group-hover:text-primary">
-                      <Link href="/contact">Learn More</Link>
-                    </Button>
+                    <SubscribeButton planName={plan.name} planPrice={plan.price} />
                   </div>
                 </div>
               );
             })}
+          </div>
+
+          {/* Subscription note */}
+          <div className="mx-auto mt-10 max-w-3xl rounded-xl border border-border/40 bg-card px-6 py-4 flex items-start gap-3">
+            <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+            <p className="text-sm text-muted-foreground">
+              <span className="font-medium text-foreground">Auto-renewal: </span>
+              Support plan subscriptions renew automatically each month. You can
+              cancel at any time from your Stripe billing portal. Payments are
+              processed securely via Stripe.
+            </p>
           </div>
         </div>
       </section>
