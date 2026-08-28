@@ -29,7 +29,7 @@ const testimonials = [
   },
   {
     quote:
-      "Unbelievable attention to detail. They didn't just build a website, they built a powerful tool for our business growth.",
+      "Unbelievable attention to detail. They didn&apos;t just build a website, they built a powerful tool for our business growth.",
     name: "David Rodriguez",
     role: "CEO, NexaCorp",
   },
@@ -44,7 +44,7 @@ export function Testimonials() {
             Trusted by Industry Leaders
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-            Don't just take our word for it. Here's what our clients have to say about working with us.
+            Don&apos;t just take our word for it. Here&apos;s what our clients have to say about working with us.
           </p>
         </div>
 
@@ -68,7 +68,7 @@ export function Testimonials() {
                           ))}
                         </div>
                         <blockquote className="flex-1 mb-6 text-sm leading-relaxed text-foreground">
-                          "{testimonial.quote}"
+                          &quot;{testimonial.quote}&quot;
                         </blockquote>
                         <div className="mt-auto">
                           <p className="font-semibold text-foreground text-sm">{testimonial.name}</p>
