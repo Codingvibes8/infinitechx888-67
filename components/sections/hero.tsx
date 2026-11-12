@@ -79,8 +79,8 @@ export function Hero() {
           <div className="relative mx-auto w-full max-w-lg lg:max-w-none opacity-0 animate-scale-in">
             <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-border/40 shadow-2xl shadow-primary/10 hover:shadow-primary/25 transition-shadow duration-500">
               <Image
-                src="/im.png"
-                alt="Orbit"
+                src="/hero-wireframe.webp"
+                alt="Cluttered website wireframes resolving into a clean, modern page layout"
                 fill
                 priority
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
