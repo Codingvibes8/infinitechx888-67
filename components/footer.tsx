@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Microchip } from "lucide-react";
+import Image from "next/image";
 const footerLinks = [
   {
     title: "Company",
@@ -30,7 +30,7 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-1" aria-label="Scriptorcode Home">
-          <Microchip className="h-8 w-8 rounded-full text-blue-700" />
+          <Image src="/logo.png" alt="" width={32} height={32} className="h-8 w-8" />
             <span className="font-heading text-xl font-bold tracking-tight text-foreground">
             Scriptor<span className="text-primary">code</span>
           </span>

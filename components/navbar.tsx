@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Menu, Microchip, X } from "lucide-react";
+import Image from "next/image";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -26,7 +27,7 @@ export function Navbar() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-1" aria-label="Scriptorcode Home">
-          <Microchip className="h-8 w-8 rounded-full text-blue-700" />
+          <Image src="/logo.png" alt="" width={32} height={32} className="h-8 w-8" priority />
             <span className="font-heading text-xl font-bold tracking-tight text-foreground">
             Scriptor<span className="text-primary">code</span>
           </span>
