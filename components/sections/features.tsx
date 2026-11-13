@@ -1,4 +1,5 @@
 import { Zap, Shield, Paintbrush, TrendingUp, Smartphone, Puzzle } from "lucide-react";
+import { reveal, revealAlternating } from "@/lib/reveal";
 
 const features = [
   {
@@ -43,7 +44,7 @@ export function Features() {
   return (
     <section className="border-t border-border/40 bg-card py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
+        <div className="mx-auto max-w-2xl text-center" {...reveal("up")}>
           <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">
             Why Upgrade With Scriptorcode?
           </h2>
@@ -55,18 +56,11 @@ export function Features() {
 
         <div className="mx-auto mt-16 grid max-w-5xl gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, i) => {
-            const delays = [
-              "animate-card-enter",
-              "animate-card-enter-d1",
-              "animate-card-enter-d2",
-              "animate-card-enter-d3",
-              "animate-card-enter-d4",
-              "animate-card-enter-d5",
-            ];
             return (
               <div
                 key={feature.title}
-                className={`group card-shine card-glow card-animate-init rounded-xl border border-border/40 bg-background p-6 transition-all duration-300 hover:border-primary/40 hover:-translate-y-1.5 hover:shadow-xl ${delays[i] || delays[5]}`}
+                {...revealAlternating(i, 80)}
+                className="group card-shine card-glow rounded-xl border border-border/40 bg-background p-6 transition-all duration-300 hover:border-primary/40 hover:-translate-y-1.5 hover:shadow-xl"
               >
                 <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary/20 group-hover:scale-110 group-hover:animate-icon-bounce">
                   <feature.icon className="h-5 w-5" />

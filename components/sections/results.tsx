@@ -1,3 +1,5 @@
+import { reveal, revealAlternating } from "@/lib/reveal";
+
 const stats = [
   { value: "5x", label: "Faster Load Times" },
   { value: "3x", label: "More Enquiries" },
@@ -9,7 +11,7 @@ export function Results() {
   return (
     <section className="border-t border-border/40 bg-background py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
+        <div className="mx-auto max-w-2xl text-center" {...reveal("up")}>
           <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">
             Real Results for Real Businesses
           </h2>
@@ -21,16 +23,11 @@ export function Results() {
 
         <div className="mx-auto mt-16 grid max-w-4xl gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((stat, i) => {
-            const delays = [
-              "animate-card-enter",
-              "animate-card-enter-d1",
-              "animate-card-enter-d2",
-              "animate-card-enter-d3",
-            ];
             return (
               <div
                 key={stat.label}
-                className={`group card-glow card-animate-init flex flex-col items-center rounded-xl border border-border/40 bg-card p-8 text-center transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-lg ${delays[i] || delays[3]}`}
+                {...revealAlternating(i, 90)}
+                className="group card-glow flex flex-col items-center rounded-xl border border-border/40 bg-card p-8 text-center transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-lg"
               >
                 <span className="font-heading text-4xl font-bold text-primary transition-transform duration-300 group-hover:scale-110">
                   {stat.value}

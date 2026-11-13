@@ -37,12 +37,6 @@
   --animate-slide-in-left-delayed: slide-in-left 0.7s cubic-bezier(0.16,1,0.3,1) 0.15s forwards;
   --animate-scale-in: scale-in 0.8s cubic-bezier(0.16,1,0.3,1) 0.3s forwards;
   --animate-float: float 4s ease-in-out infinite;
-  --animate-card-enter: card-enter 0.6s cubic-bezier(0.16,1,0.3,1) forwards;
-  --animate-card-enter-d1: card-enter 0.6s cubic-bezier(0.16,1,0.3,1) 0.1s forwards;
-  --animate-card-enter-d2: card-enter 0.6s cubic-bezier(0.16,1,0.3,1) 0.2s forwards;
-  --animate-card-enter-d3: card-enter 0.6s cubic-bezier(0.16,1,0.3,1) 0.3s forwards;
-  --animate-card-enter-d4: card-enter 0.6s cubic-bezier(0.16,1,0.3,1) 0.4s forwards;
-  --animate-card-enter-d5: card-enter 0.6s cubic-bezier(0.16,1,0.3,1) 0.5s forwards;
   --animate-shimmer: shimmer 3s linear infinite;
   --animate-border-glow: border-glow 2s ease-in-out infinite;
   --animate-icon-bounce: icon-bounce 0.4s cubic-bezier(0.16,1,0.3,1);
@@ -75,10 +69,6 @@
   @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-8px); }
-  }
-  @keyframes card-enter {
-    from { opacity: 0; transform: translateY(20px) scale(0.97); }
-    to { opacity: 1; transform: translateY(0) scale(1); }
   }
   @keyframes shimmer {
     0% { background-position: -200% 0; }
@@ -161,9 +151,6 @@
 }
 
 @layer utilities {
-  .card-animate-init {
-    opacity: 0;
-  }
   .card-shine {
     position: relative;
     overflow: hidden;
@@ -212,6 +199,60 @@
   }
 }
 
+/* ---------------------------------------------------------------------------
+   Scroll reveal
+   Elements marked with data-reveal stay hidden until the observer in
+   components/scroll-reveal.tsx adds .is-revealed. .reveal-ready is rendered on
+   <body> so it is present before paint and survives React hydration.
+   --------------------------------------------------------------------------- */
+.reveal-ready [data-reveal] {
+  opacity: 0;
+}
+
+.reveal-ready [data-reveal="up"] {
+  --reveal-from: translate3d(0, 48px, 0);
+}
+
+.reveal-ready [data-reveal="down"] {
+  --reveal-from: translate3d(0, -48px, 0);
+}
+
+.reveal-ready [data-reveal="left"] {
+  --reveal-from: translate3d(-48px, 0, 0);
+}
+
+.reveal-ready [data-reveal="right"] {
+  --reveal-from: translate3d(48px, 0, 0);
+}
+
+.reveal-ready [data-reveal="scale"] {
+  --reveal-from: scale(0.92);
+}
+
+.reveal-ready [data-reveal].is-revealed {
+  animation: reveal-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
+/* Keep the looping border glow on popular pricing cards while they reveal. */
+.reveal-ready [data-reveal].is-revealed.animate-border-glow {
+  animation:
+    reveal-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) both,
+    border-glow 2s ease-in-out infinite;
+  animation-delay: var(--reveal-delay, 0ms), 0ms;
+}
+
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: var(--reveal-from, translate3d(0, 48px, 0));
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -221,5 +262,11 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .reveal-ready [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
   }
 }

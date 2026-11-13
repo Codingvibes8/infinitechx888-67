@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Code2, Target, Palette, BarChart3, Settings, HeartHandshake } from "lucide-react";
 import { CTASection } from "@/components/cta-section";
+import { reveal, revealAlternating } from "@/lib/reveal";
 
 export const metadata: Metadata = {
   title: "About",
@@ -76,7 +77,7 @@ export default function AboutPage() {
       {/* Mission */}
       <section className="border-t border-border/40 bg-card py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center">
+          <div className="mx-auto max-w-3xl text-center" {...reveal("up")}>
             <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">
               Our Mission
             </h2>
@@ -91,17 +92,18 @@ export default function AboutPage() {
       {/* Approach */}
       <section className="border-t border-border/40 bg-background py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="mx-auto max-w-2xl text-center" {...reveal("up")}>
             <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">
               Our Approach
             </h2>
           </div>
 
           <div className="mx-auto mt-16 grid max-w-5xl gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {approach.map((item) => (
+            {approach.map((item, i) => (
               <div
                 key={item.title}
-                className="rounded-xl border border-border/40 bg-card p-6"
+                {...revealAlternating(i, 80)}
+                className="rounded-xl border border-border/40 bg-card p-6 transition-all duration-300 hover:border-primary/40 hover:-translate-y-1 hover:shadow-lg"
               >
                 <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                   <item.icon className="h-5 w-5" />
@@ -122,7 +124,7 @@ export default function AboutPage() {
       <section className="border-t border-border/40 bg-card py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-            <div>
+            <div {...reveal("left")}>
               <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">
                 Why Scriptorcode?
               </h2>
@@ -132,10 +134,11 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
-              {whyUs.map((item) => (
+              {whyUs.map((item, i) => (
                 <div
                   key={item}
-                  className="flex items-center gap-3 rounded-lg border border-border/40 bg-background p-4"
+                  {...reveal("right", Math.min(i * 60, 300))}
+                  className="flex items-center gap-3 rounded-lg border border-border/40 bg-background p-4 transition-all duration-300 hover:border-primary/40"
                 >
                   <HeartHandshake className="h-5 w-5 shrink-0 text-primary" />
                   <span className="text-sm font-medium text-foreground">

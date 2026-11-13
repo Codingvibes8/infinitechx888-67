@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { CTASection } from "@/components/cta-section";
 import { DepositButton } from "@/components/deposit-button";
 import { SubscribeButton } from "@/components/subscribe-button";
+import { reveal, revealAlternating } from "@/lib/reveal";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -143,21 +144,16 @@ export default function PricingPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid gap-8 lg:grid-cols-3">
             {packages.map((pkg, i) => {
-              const delays = [
-                "animate-card-enter",
-                "animate-card-enter-d1",
-                "animate-card-enter-d2",
-              ];
               const deposit = Math.round(pkg.price * 0.3);
               return (
                 <div
                   key={pkg.name}
+                  {...revealAlternating(i, 100)}
                   className={cn(
-                    "group card-glow card-animate-init relative flex flex-col rounded-xl border bg-background p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl",
+                    "group card-glow relative flex flex-col rounded-xl border bg-background p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl",
                     pkg.popular
                       ? "border-primary shadow-lg shadow-primary/10 animate-border-glow"
-                      : "border-border/40 hover:border-primary/40",
-                    delays[i] || delays[2]
+                      : "border-border/40 hover:border-primary/40"
                   )}
                 >
                   {pkg.popular && (
@@ -222,7 +218,10 @@ export default function PricingPage() {
           </div>
 
           {/* Deposit note */}
-          <div className="mx-auto mt-12 max-w-3xl rounded-xl border border-border/40 bg-background px-6 py-4 flex items-start gap-3">
+          <div
+            {...reveal("up")}
+            className="mx-auto mt-12 max-w-3xl rounded-xl border border-border/40 bg-background px-6 py-4 flex items-start gap-3"
+          >
             <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
             <p className="text-sm text-muted-foreground">
               <span className="font-medium text-foreground">Deposit policy: </span>
@@ -237,7 +236,7 @@ export default function PricingPage() {
       {/* Support Plans */}
       <section className="border-t border-border/40 bg-background py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="mx-auto max-w-2xl text-center" {...reveal("up")}>
             <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">
               Ongoing Support Plans
             </h2>
@@ -249,11 +248,11 @@ export default function PricingPage() {
 
           <div className="mx-auto mt-16 grid max-w-3xl gap-8 sm:grid-cols-2">
             {supportPlans.map((plan, i) => {
-              const delays = ["animate-card-enter", "animate-card-enter-d1"];
               return (
                 <div
                   key={plan.name}
-                  className={`group card-glow card-shine card-animate-init rounded-xl border border-border/40 bg-card p-8 transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-lg ${delays[i] || delays[1]}`}
+                  {...revealAlternating(i, 100)}
+                  className="group card-glow card-shine rounded-xl border border-border/40 bg-card p-8 transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-lg"
                 >
                   <h3 className="font-heading text-xl font-bold text-foreground transition-colors duration-300 group-hover:text-primary">
                     {plan.name}
@@ -288,7 +287,10 @@ export default function PricingPage() {
           </div>
 
           {/* Subscription note */}
-          <div className="mx-auto mt-10 max-w-3xl rounded-xl border border-border/40 bg-card px-6 py-4 flex items-start gap-3">
+          <div
+            {...reveal("up")}
+            className="mx-auto mt-10 max-w-3xl rounded-xl border border-border/40 bg-card px-6 py-4 flex items-start gap-3"
+          >
             <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
             <p className="text-sm text-muted-foreground">
               <span className="font-medium text-foreground">Auto-renewal: </span>

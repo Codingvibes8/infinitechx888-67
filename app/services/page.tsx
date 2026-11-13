@@ -19,6 +19,7 @@ import {
 import { CTASection } from "@/components/cta-section";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { reveal, revealAlternating } from "@/lib/reveal";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -245,15 +246,6 @@ const retainers = [
   },
 ];
 
-const delays = [
-  "animate-card-enter",
-  "animate-card-enter-d1",
-  "animate-card-enter-d2",
-  "animate-card-enter-d3",
-  "animate-card-enter-d4",
-  "animate-card-enter-d5",
-];
-
 export default function ServicesPage() {
   return (
     <>
@@ -276,7 +268,7 @@ export default function ServicesPage() {
       {/* ── Packages ── */}
       <section className="border-t border-border/40 bg-card py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mb-12 text-center">
+          <div className="mb-12 text-center" {...reveal("up")}>
             <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">
               Build Packages
             </h2>
@@ -292,12 +284,12 @@ export default function ServicesPage() {
               <Link
                 key={pkg.name}
                 href={pkg.href}
+                {...revealAlternating(i, 100)}
                 className={cn(
-                  "group card-shine card-glow card-animate-init flex flex-col rounded-xl border bg-background p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl",
+                  "group card-shine card-glow flex flex-col rounded-xl border bg-background p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl",
                   pkg.popular
                     ? "border-primary shadow-lg shadow-primary/10 animate-border-glow"
-                    : "border-border/40 hover:border-primary/40",
-                  delays[i] || delays[2]
+                    : "border-border/40 hover:border-primary/40"
                 )}
               >
                 {pkg.popular && (
@@ -365,7 +357,7 @@ export default function ServicesPage() {
       {/* ── Add-ons ── */}
       <section className="border-t border-border/40 bg-background py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mb-12 text-center">
+          <div className="mb-12 text-center" {...reveal("up")}>
             <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">
               Add-ons
             </h2>
@@ -379,10 +371,8 @@ export default function ServicesPage() {
             {addOns.map((a, i) => (
               <div
                 key={a.name}
-                className={cn(
-                  "group card-shine card-glow card-animate-init rounded-xl border border-border/40 bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg",
-                  delays[i] || delays[5]
-                )}
+                {...revealAlternating(i, 80)}
+                className="group card-shine card-glow rounded-xl border border-border/40 bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
               >
                 <div className="flex items-start gap-4">
                   <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary/20 group-hover:scale-110">
@@ -412,7 +402,7 @@ export default function ServicesPage() {
       {/* ── Standalone Services ── */}
       <section className="border-t border-border/40 bg-card py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mb-12 text-center">
+          <div className="mb-12 text-center" {...reveal("up")}>
             <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">
               Standalone Services
             </h2>
@@ -427,10 +417,8 @@ export default function ServicesPage() {
               <Link
                 key={s.name}
                 href={s.href}
-                className={cn(
-                  "group card-shine card-glow card-animate-init rounded-xl border border-border/40 bg-background p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg",
-                  delays[i] || delays[5]
-                )}
+                {...revealAlternating(i, 80)}
+                className="group card-shine card-glow rounded-xl border border-border/40 bg-background p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
               >
                 <div className="flex items-start gap-4">
                   <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary/20 group-hover:scale-110">
@@ -464,7 +452,7 @@ export default function ServicesPage() {
       {/* ── Retainers ── */}
       <section className="border-t border-border/40 bg-background py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mb-12 text-center">
+          <div className="mb-12 text-center" {...reveal("up")}>
             <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">
               Recurring Retainers
             </h2>
@@ -478,10 +466,8 @@ export default function ServicesPage() {
             {retainers.map((r, i) => (
               <div
                 key={r.name}
-                className={cn(
-                  "group card-shine card-glow card-animate-init rounded-xl border border-border/40 bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg",
-                  delays[i] || delays[5]
-                )}
+                {...revealAlternating(i, 80)}
+                className="group card-shine card-glow rounded-xl border border-border/40 bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="min-w-0">

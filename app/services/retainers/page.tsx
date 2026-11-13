@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { CTASection } from "@/components/cta-section";
 import { Button } from "@/components/ui/button";
+import { reveal, revealAlternating } from "@/lib/reveal";
 
 export const metadata: Metadata = {
   title: "Retainers — ongoing care for your website · Scriptorcode",
@@ -80,10 +81,8 @@ export default function RetainersPage() {
             {retainers.map((r, i) => (
               <div
                 key={r.name}
-                className={`group card-shine card-glow card-animate-init rounded-xl border border-border/40 bg-background p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg ${
-                  ["animate-card-enter", "animate-card-enter-d1", "animate-card-enter-d2", "animate-card-enter-d3", "animate-card-enter-d4"][i] ||
-                  "animate-card-enter-d5"
-                }`}
+                {...revealAlternating(i, 80)}
+                className="group card-shine card-glow rounded-xl border border-border/40 bg-background p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="min-w-0 flex-1">
@@ -117,7 +116,10 @@ export default function RetainersPage() {
       {/* Mix and match note */}
       <section className="border-t border-border/40 bg-background py-24 sm:py-32">
         <div className="mx-auto max-w-3xl px-6 lg:px-8">
-          <div className="rounded-xl border border-primary/20 bg-primary/5 p-6 sm:p-8">
+          <div
+            {...reveal("up")}
+            className="rounded-xl border border-primary/20 bg-primary/5 p-6 sm:p-8"
+          >
             <h3 className="font-heading text-xl font-bold text-foreground">
               Mix and Match
             </h3>

@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import { CTASection } from "@/components/cta-section";
 import { Button } from "@/components/ui/button";
+import { reveal, revealAlternating } from "@/lib/reveal";
 
 export const metadata: Metadata = {
   title: "Growth — 10-page conversion website · Scriptorcode",
@@ -85,13 +86,14 @@ export default function GrowthPage() {
       {/* What's included */}
       <section className="border-t border-border/40 bg-card py-24 sm:py-32">
         <div className="mx-auto max-w-3xl px-6 lg:px-8">
-          <h2 className="font-heading text-2xl font-bold tracking-tight text-foreground sm:text-3xl text-balance">
+          <h2 {...reveal("up")} className="font-heading text-2xl font-bold tracking-tight text-foreground sm:text-3xl text-balance">
             What&apos;s Included
           </h2>
           <ul className="mt-8 space-y-3">
-            {features.map((f) => (
+            {features.map((f, i) => (
               <li
                 key={f}
+                {...revealAlternating(i, 60)}
                 className="flex gap-4 rounded-lg border border-border/40 bg-background p-4 transition-all duration-300 hover:border-primary/30"
               >
                 <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/20">
@@ -109,13 +111,14 @@ export default function GrowthPage() {
       {/* Good fit */}
       <section className="border-t border-border/40 bg-background py-24 sm:py-32">
         <div className="mx-auto max-w-3xl px-6 lg:px-8">
-          <h2 className="font-heading text-2xl font-bold tracking-tight text-foreground sm:text-3xl text-balance">
+          <h2 {...reveal("up")} className="font-heading text-2xl font-bold tracking-tight text-foreground sm:text-3xl text-balance">
             Good Fit For
           </h2>
           <ul className="mt-6 space-y-3">
-            {goodFit.map((f) => (
+            {goodFit.map((f, i) => (
               <li
                 key={f}
+                {...revealAlternating(i, 60)}
                 className="flex gap-3 rounded-lg border border-border/40 bg-card p-4 transition-all duration-300 hover:border-primary/30"
               >
                 <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
@@ -133,17 +136,18 @@ export default function GrowthPage() {
       {/* Popular add-ons */}
       <section className="border-t border-border/40 bg-card py-24 sm:py-32">
         <div className="mx-auto max-w-3xl px-6 lg:px-8">
-          <h2 className="font-heading text-2xl font-bold tracking-tight text-foreground sm:text-3xl text-balance">
+          <h2 {...reveal("up")} className="font-heading text-2xl font-bold tracking-tight text-foreground sm:text-3xl text-balance">
             Popular Add-ons
           </h2>
-          <p className="mt-3 text-sm text-muted-foreground">
+          <p {...reveal("up")} className="mt-3 text-sm text-muted-foreground">
             Most Growth projects also include one or more of these — scoped and priced
             separately so you only pay for what you need.
           </p>
           <ul className="mt-5 space-y-2">
-            {addOns.map((a) => (
+            {addOns.map((a, i) => (
               <li
                 key={a}
+                {...revealAlternating(i, 60)}
                 className="flex gap-3 rounded-lg border border-border/40 bg-background px-4 py-3 transition-all duration-300 hover:border-primary/30"
               >
                 <span className="mt-0.5 h-5 w-5 shrink-0 rounded-full bg-primary/10 text-primary">
@@ -167,7 +171,7 @@ export default function GrowthPage() {
       {/* CTA */}
       <section className="border-t border-border/40 bg-background py-24 sm:py-32">
         <div className="mx-auto max-w-3xl px-6 lg:px-8">
-          <div className="rounded-xl border border-primary/20 bg-primary/5 p-6 sm:p-8">
+          <div {...reveal("up")} className="rounded-xl border border-primary/20 bg-primary/5 p-6 sm:p-8">
             <h3 className="font-heading text-xl font-bold text-foreground">
               Ready to Start?
             </h3>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Mail, MapPin, Clock } from "lucide-react";
 import { ContactForm } from "@/components/contact-form";
+import { reveal } from "@/lib/reveal";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -53,7 +54,7 @@ export default function ContactPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid gap-16 lg:grid-cols-5">
             {/* Contact Details */}
-            <div className="lg:col-span-2">
+            <div className="lg:col-span-2" {...reveal("left")}>
               <h2 className="font-heading text-2xl font-bold text-foreground">
                 Direct Contact
               </h2>
@@ -101,7 +102,7 @@ export default function ContactPage() {
             </div>
 
             {/* Form */}
-            <div className="lg:col-span-3">
+            <div className="lg:col-span-3" {...reveal("right", 100)}>
               <div className="rounded-xl border border-border/40 bg-background p-8">
                 <ContactForm />
               </div>

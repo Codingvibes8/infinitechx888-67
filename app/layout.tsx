@@ -7,6 +7,7 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "@/components/theme-provider";
+import { ScrollReveal } from "@/components/scroll-reveal";
 
 const cormorantGaramond = Cormorant_Garamond({
   subsets: ["latin"],
@@ -120,14 +121,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${dmSans.variable} ${cormorantGaramond.variable}`}>
-      <body className="font-sans antialiased">
+    <html
+      lang="en"
+      className={`${dmSans.variable} ${cormorantGaramond.variable}`}
+      suppressHydrationWarning
+    >
+      <body className="font-sans antialiased reveal-ready">
+        {/* Keep reveal content visible if JavaScript is disabled. */}
+        <noscript>
+          <style>{`[data-reveal]{opacity:1!important;transform:none!important;animation:none!important}`}</style>
+        </noscript>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
+          <ScrollReveal />
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }}

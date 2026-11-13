@@ -7,6 +7,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Star } from "lucide-react";
+import { reveal } from "@/lib/reveal";
 
 const testimonials = [
   {
@@ -39,7 +40,7 @@ export function Testimonials() {
   return (
     <section className="border-t border-border/40 bg-background py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center mb-16">
+        <div className="mx-auto max-w-2xl text-center mb-16" {...reveal("up")}>
           <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">
             Trusted by Industry Leaders
           </h2>
@@ -48,7 +49,7 @@ export function Testimonials() {
           </p>
         </div>
 
-        <div className="mx-auto max-w-5xl px-6">
+        <div className="mx-auto max-w-5xl px-6" {...reveal("up", 100)}>
           <Carousel
             opts={{
               align: "start",

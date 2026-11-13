@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { reveal } from "@/lib/reveal";
 import { cn } from "@/lib/utils";
 
 interface CTAButtonConfig {
@@ -52,7 +53,10 @@ export function CTASection({
 
   if (variant === "card") {
     return (
-      <div className="relative isolate overflow-hidden rounded-3xl border border-border/50 bg-secondary/30 px-6 py-24 text-center shadow-2xl sm:px-16">
+      <div
+        {...reveal("up")}
+        className="relative isolate overflow-hidden rounded-3xl border border-border/50 bg-secondary/30 px-6 py-24 text-center shadow-2xl sm:px-16"
+      >
         <h2 className="mx-auto max-w-2xl font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">
           {title}
         </h2>
@@ -80,7 +84,7 @@ export function CTASection({
       </div>
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
+        <div className="mx-auto max-w-2xl text-center" {...reveal("up")}>
           <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">
             {title}
           </h2>

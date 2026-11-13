@@ -5,6 +5,7 @@ import { ArrowRight, ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { projects } from "@/lib/data/projects";
+import { reveal } from "@/lib/reveal";
 import { cn } from "@/lib/utils";
 
 const featured = projects.filter((p) => p.featured);
@@ -15,7 +16,7 @@ export function FeaturedWork() {
   return (
     <section className="border-t border-border/40 bg-background py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
+        <div className="mx-auto max-w-2xl text-center" {...reveal("up")}>
           <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">
             Featured Work
           </h2>
@@ -35,6 +36,7 @@ export function FeaturedWork() {
               >
                 <Link
                   href={`/projects/${project.slug}`}
+                  {...reveal(flipped ? "right" : "left")}
                   className={cn(
                     "group card-shine card-glow relative block aspect-[4/3] overflow-hidden rounded-2xl border border-border/40 shadow-2xl shadow-primary/10 transition-shadow duration-500 hover:border-primary/40 hover:shadow-primary/20",
                     flipped && "lg:order-2"
@@ -52,7 +54,10 @@ export function FeaturedWork() {
                   </Badge>
                 </Link>
 
-                <div className={cn(flipped && "lg:order-1")}>
+                <div
+                  {...reveal(flipped ? "left" : "right", 120)}
+                  className={cn(flipped && "lg:order-1")}
+                >
                   <h3 className="font-heading text-2xl font-bold tracking-tight text-foreground sm:text-3xl text-balance">
                     {project.title}
                   </h3>

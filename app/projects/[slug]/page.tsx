@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CTASection } from "@/components/cta-section";
 import { projects } from "@/lib/data/projects";
+import { reveal, revealAlternating } from "@/lib/reveal";
 
 type Params = Promise<{ slug: string }>;
 
@@ -119,7 +120,7 @@ export default async function ProjectPage(props: { params: Params }) {
           
           {/* Services Provided */}
           <div>
-            <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl mb-8 flex items-center gap-3">
+            <h2 {...reveal("up")} className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl mb-8 flex items-center gap-3">
               <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                 <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -128,11 +129,12 @@ export default async function ProjectPage(props: { params: Params }) {
               Services Provided
             </h2>
             <div className="grid gap-4 sm:grid-cols-2">
-              {project.services.map((service) => {
+              {project.services.map((service, index) => {
                 const Icon = service.icon;
                 return (
                   <div
                     key={service.name}
+                    {...revealAlternating(index, 70)}
                     className="group relative flex items-center gap-4 rounded-2xl border border-border/50 bg-card p-4 transition-all hover:border-primary/50 hover:shadow-lg"
                   >
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
@@ -147,7 +149,7 @@ export default async function ProjectPage(props: { params: Params }) {
 
           {/* Key Results */}
           <div>
-             <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl mb-8 flex items-center gap-3">
+             <h2 {...reveal("up")} className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl mb-8 flex items-center gap-3">
                <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10 text-accent">
                 <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -159,6 +161,7 @@ export default async function ProjectPage(props: { params: Params }) {
               {project.results.map((result, index) => (
                 <li
                   key={index}
+                  {...reveal(index % 2 === 0 ? "up" : "down", Math.min(index * 70, 280))}
                   className="flex gap-4 rounded-2xl border border-border/50 bg-card p-6 shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md"
                 >
                   <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent/20">

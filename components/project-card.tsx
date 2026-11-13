@@ -4,10 +4,20 @@ import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { Project } from "@/lib/data/projects";
+import { revealAlternating } from "@/lib/reveal";
 
-export function ProjectCard({ project }: { project: Project }) {
+export function ProjectCard({
+  project,
+  index = 0,
+}: {
+  project: Project;
+  index?: number;
+}) {
   return (
-    <article className="group card-shine card-glow overflow-hidden rounded-xl border border-border/40 bg-card transition-all duration-300 hover:border-primary/40 hover:-translate-y-2 hover:shadow-xl">
+    <article
+      {...revealAlternating(index, 80)}
+      className="group card-shine card-glow overflow-hidden rounded-xl border border-border/40 bg-card transition-all duration-300 hover:border-primary/40 hover:-translate-y-2 hover:shadow-xl"
+    >
       {/* Image */}
       <Link href={`/projects/${project.slug}`} className="relative aspect-[3/2] overflow-hidden block">
         <Image
